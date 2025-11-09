@@ -1,0 +1,366 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Admin Panel • Baenephit</title>
+  <link rel="stylesheet" href="/static/css/common.css"/>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <link rel="icon" type="image/png" href="/static/img/faviconhyyzo-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+  :root{
+    --brand:#03A88F;
+    --bg:#f5f7f7;
+    --text:#101418;
+    --muted:#6b7280;
+    --card:#ffffff;
+    --border:#e8eeee;
+    --shadow:0 10px 30px rgba(0,0,0,.06);
+    --radius:14px;
+  }
+
+  /* page */
+  html,body{height:100%}
+  body{background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased}
+  .page-wrap{max-width:1200px;margin:24px auto;padding:0 16px}
+
+  /* breadcrumb */
+  .breadComeArea .content ul{
+    list-style:none; margin:0; padding:0;
+    display:flex; align-items:center; gap:10px;
+    color:var(--muted); font-size:.95rem;
+  }
+  .breadComeArea .content ul li a{color:var(--brand); text-decoration:none}
+  .breadComeArea .content ul li i{font-size:.85rem; opacity:.7}
+
+  /* bar */
+  .brand-bar{
+    background:var(--brand); color:#fff;
+    border-radius:var(--radius); padding:14px 18px;
+    margin:16px 0; display:flex; align-items:center; justify-content:space-between;
+    box-shadow:var(--shadow);
+  }
+  .brand-bar h1{margin:0; font-size:1.1rem; font-weight:600}
+  .brand-bar .right a{color:#fff; text-decoration:underline}
+
+  /* cards */
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+
+  /* dashboard tiles */
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+  @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+  .dash-item{padding:28px; text-align:center; cursor:pointer; transition:transform .15s}
+  .dash-item:hover{transform:translateY(-2px)}
+  .dash-item h3{margin:0 0 6px; font-size:1.15rem}
+  .dash-item p{margin:0; color:var(--muted)}
+
+  /* list blocks */
+  .list-wrap{padding:22px; margin-top:14px}
+  .list-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px}
+  .list{margin-top:10px}
+  .list .item{
+    background:#fbfdfc; border:1px solid var(--border);
+    border-radius:10px; padding:14px; margin-bottom:10px;
+  }
+  .list .item h4{margin:0 0 6px; font-size:1.05rem}
+  .list .item p{margin:2px 0; color:#374151}
+
+  /* forms */
+  .login-card{max-width:420px;margin:56px auto;padding:24px}
+  .login-card h3{margin:0 0 6px}
+  .form-control{
+    width:100%; height:44px; padding:10px 12px;
+    background:#fff; border:1px solid var(--border); border-radius:10px;
+  }
+  textarea.form-control{height:120px; resize:vertical}
+  .mb-2{margin-bottom:8px} .mb-3{margin-bottom:12px}
+  label{display:block; margin-bottom:6px; color:#111827; font-weight:500}
+
+  /* buttons */
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:10px; padding:0 16px; height:44px; font-weight:600}
+  .btn-brand{background:var(--brand); color:#fff; border:none}
+  .btn-brand:hover{filter:brightness(.96)}
+  .btn-outline{background:#fff; color:var(--brand); border:1px solid var(--brand)}
+  .btn-outline:hover{background:#f0fffb}
+
+  /* util */
+  .muted{color:var(--muted)}
+  .w-100{width:100%}
+
+  /* toast */
+  .toast-lite{
+    position:fixed; right:16px; bottom:16px;
+    background:var(--brand); color:#fff;
+    padding:10px 14px; border-radius:10px; display:none; box-shadow:var(--shadow);
+  }
+
+  /* action bar (Create, Back) */
+  #showCreateCampaign, #showCreateStore{min-width:160px}
+  #backFromCampaigns, #backFromStores{min-width:96px}
+
+  /* spacing for the top stats card */
+  #dashView > .card{padding:18px}
+</style>
+
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <div class="breadComeArea">
+    <div class="container-fluid">
+      <div class="row"><div class="col-12">
+        <div class="content">
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><i class="fa-solid fa-chevron-right"></i></li>
+            <li>Admin</li>
+          </ul>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="brand-bar card">
+    <h1>Admin Panel</h1>
+    <div class="right">
+      <a href="#" id="logoutLink"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+    </div>
+  </div>
+
+  <div id="loginView" class="login-card card" style="display:none">
+    <h3>Admin login</h3>
+    <p class="muted">Only Baenephit admins can access this page.</p>
+    <form id="loginForm">
+      <div class="mb-3">
+        <label>Email</label>
+        <input class="form-control" type="email" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label>Password</label>
+        <input class="form-control" type="password" name="password" required>
+      </div>
+      <button class="btn btn-brand w-100">Login</button>
+      <p id="loginError" class="muted" style="color:#c0392b;display:none;margin-top:8px">Invalid credentials</p>
+    </form>
+  </div>
+
+  <div id="dashView" style="display:none">
+    <div class="card" style="padding:18px">
+      <div class="grid-2">
+        <div class="dash-item card" id="openCampaigns">
+          <h3>Campaigns</h3>
+          <p>Number of campaigns: <b id="campaignCount">0</b></p>
+        </div>
+        <div class="dash-item card" id="openStores">
+          <h3>Stores</h3>
+          <p>Number of stores: <b id="storeCount">0</b></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="campaignsBlock" class="list-wrap card" style="display:none">
+      <div class="list-head">
+        <h3>Campaigns</h3>
+        <button class="btn btn-brand" id="showCreateCampaign">Create Campaign</button>
+      </div>
+
+      <form id="createCampaignForm" class="card" style="padding:14px;display:none;margin-top:12px">
+        <div class="mb-2"><label>Image</label><input class="form-control" type="file" name="image"></div>
+        <div class="mb-2"><label>Name</label><input class="form-control" name="name" required></div>
+        <div class="mb-2"><label>Link</label><input class="form-control" type="url" name="link" required></div>
+        <div class="mb-2"><label>About</label><textarea class="form-control" name="about"></textarea></div>
+        <div class="mb-2"><label>Cashback Rates</label><textarea class="form-control" name="cashbackRates"></textarea></div>
+        <div class="mb-2"><label>Useful Tips</label><textarea class="form-control" name="usefulTips"></textarea></div>
+        <div class="mb-2"><label>Offers</label><textarea class="form-control" name="offers"></textarea></div>
+        <div class="mb-2"><label>Why You Should Shop</label><textarea class="form-control" name="why"></textarea></div>
+        <div class="mb-2"><label>Policies</label><textarea class="form-control" name="policies"></textarea></div>
+        <div class="mb-2"><label>FAQs</label><textarea class="form-control" name="faqs"></textarea></div>
+        <button class="btn btn-brand">Create</button>
+      </form>
+
+      <div id="campaignList" class="list"></div>
+      <button class="btn btn-brand" id="backFromCampaigns" style="margin-top:8px">Back</button>
+    </div>
+
+    <div id="storesBlock" class="list-wrap card" style="display:none">
+      <div class="list-head">
+        <h3>Stores</h3>
+        <button class="btn btn-brand" id="showCreateStore">Create Store</button>
+      </div>
+
+      <form id="createStoreForm" class="card" style="padding:14px;display:none;margin-top:12px">
+        <div class="mb-2"><label>Image</label><input class="form-control" type="file" name="storeImage"></div>
+        <div class="mb-2"><label>Name</label><input class="form-control" name="name" required></div>
+        <div class="mb-2"><label>Link</label><input class="form-control" type="url" name="link" required></div>
+        <div class="mb-2">
+          <label class="mb-2" style="display:block">Trending</label>
+          <input type="checkbox" name="trending"> <span class="muted">Mark as trending</span>
+        </div>
+        <div class="mb-2">
+          <label>Category</label>
+          <select class="form-control" name="category">
+            <option value="fashion">Fashion</option>
+            <option value="food and dining">Food and Dining</option>
+            <option value="electronics">Electronics</option>
+            <option value="travel">Travel</option>
+            <option value="beauty and health">Beauty and Health</option>
+          </select>
+        </div>
+        <div class="mb-2"><label>About</label><textarea class="form-control" name="about"></textarea></div>
+        <div class="mb-2"><label>Cashback Rates</label><textarea class="form-control" name="cashbackRates"></textarea></div>
+        <div class="mb-2"><label>Useful Tips</label><textarea class="form-control" name="usefulTips"></textarea></div>
+        <div class="mb-2"><label>Offers</label><textarea class="form-control" name="offers"></textarea></div>
+        <div class="mb-2"><label>Why You Should Shop</label><textarea class="form-control" name="why"></textarea></div>
+        <div class="mb-2"><label>Policies</label><textarea class="form-control" name="policies"></textarea></div>
+        <div class="mb-2"><label>FAQs</label><textarea class="form-control" name="faqs"></textarea></div>
+        <button class="btn btn-brand">Create</button>
+      </form>
+
+      <div id="storeList" class="list"></div>
+      <button class="btn btn-brand" id="backFromStores" style="margin-top:8px">Back</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast-lite">Saved</div>
+
+<script>
+const ADMIN_EMAIL = 'prakarshi.barya2022@vitstudent.ac.in';
+const $ = s => document.querySelector(s);
+const show = el => el.style.display = '';
+const hide = el => el.style.display = 'none';
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.style.display='block'; setTimeout(()=>t.style.display='none',2200); }
+function authHeader(){ const t=localStorage.getItem('authToken'); return t?{Authorization:`Bearer ${t}`}:{}, t; }
+async function getJSON(url, opts={}){
+  const headers = Object.assign({}, opts.headers||{}, authHeader()[0]||authHeader());
+  const r = await fetch(url,{...opts, headers});
+  if(!r.ok) throw new Error(await r.text());
+  return r.json();
+}
+
+(async function boot(){
+  try{
+    const headers = authHeader();
+    const me = await fetch('/api/auth/me',{headers}).then(r=>r.ok?r.json():Promise.reject());
+    if(!me?.user || me.user.email !== ADMIN_EMAIL){ window.location.href='/login.html'; return; }
+    hide($('#loginView')); show($('#dashView')); await refreshCounts();
+  }catch{ show($('#loginView')); }
+})();
+
+$('#loginForm')?.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+  try{
+    const r = await fetch('/api/auth/login', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ email:data.email, password:data.password })
+    });
+    if(!r.ok) throw new Error('bad creds');
+    const { token, user } = await r.json();
+    if(!token || !user) throw new Error('bad response');
+    localStorage.setItem('authToken', token);
+    if(user.email === ADMIN_EMAIL){ hide($('#loginView')); show($('#dashView')); await refreshCounts(); }
+    else{ $('#loginError').style.display='block'; }
+  }catch(_){ $('#loginError').style.display='block'; }
+});
+
+$('#logoutLink').addEventListener('click', async (e)=>{
+  e.preventDefault();
+  localStorage.removeItem('authToken');
+  window.location.href = '/login.html';
+});
+
+$('#openCampaigns').addEventListener('click', async ()=>{ hide($('#storesBlock')); show($('#campaignsBlock')); await loadCampaigns(); });
+$('#openStores').addEventListener('click', async ()=>{ hide($('#campaignsBlock')); show($('#storesBlock')); await loadStores(); });
+$('#backFromCampaigns').addEventListener('click', ()=>{ hide($('#campaignsBlock')); });
+$('#backFromStores').addEventListener('click', ()=>{ hide($('#storesBlock')); });
+
+$('#showCreateCampaign').addEventListener('click', ()=>{
+  const f=$('#createCampaignForm'); f.style.display = f.style.display ? '' : 'none';
+});
+$('#showCreateStore').addEventListener('click', ()=>{
+  const f=$('#createStoreForm'); f.style.display = f.style.display ? '' : 'none';
+});
+
+async function refreshCounts(){
+  try{
+    const [cs, ss] = await Promise.all([ getJSON('/api/campaigns'), getJSON('/api/stores') ]);
+    $('#campaignCount').textContent = Array.isArray(cs)? cs.length : 0;
+    $('#storeCount').textContent    = Array.isArray(ss)? ss.length : 0;
+  }catch(_){}
+}
+
+async function loadCampaigns(){
+  const list = $('#campaignList'); list.innerHTML = '';
+  try{
+    const items = await getJSON('/api/campaigns');
+    (items||[]).forEach(c=>{
+      const div = document.createElement('div'); div.className='item';
+      div.innerHTML = `
+        <h4>${c.name||'Untitled'}</h4>
+        <p><strong>Link:</strong> <a href="${c.link||'#'}" target="_blank">${c.link||'-'}</a></p>`;
+      list.appendChild(div);
+    });
+    $('#campaignCount').textContent = items.length||0;
+  }catch(e){ toast('Error loading campaigns'); }
+}
+
+async function loadStores(){
+  const list = $('#storeList'); list.innerHTML = '';
+  try{
+    const items = await getJSON('/api/stores');
+    (items||[]).forEach(s=>{
+      const div = document.createElement('div'); div.className='item';
+      const cats = Array.isArray(s.categories)? s.categories.join(', ') : (s.category||'-');
+      div.innerHTML = `
+        <h4>${s.name||'Untitled'}</h4>
+        <p><strong>Link:</strong> <a href="${s.link||'#'}" target="_blank">${s.link||'-'}</a></p>
+        <p><strong>Trending:</strong> ${s.trending ? 'Yes' : 'No'}</p>
+        <p><strong>Categories:</strong> ${cats||'—'}</p>`;
+      list.appendChild(div);
+    });
+    $('#storeCount').textContent = items.length||0;
+  }catch(e){ toast('Error loading stores'); }
+}
+
+$('#createCampaignForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const fd = new FormData(e.currentTarget);
+  try{
+    const headers = authHeader();
+    const r = await fetch('/api/campaigns', { method:'POST', body: fd, headers });
+    if(!r.ok) throw new Error(await r.text());
+    toast('Campaign created'); e.currentTarget.reset();
+    await loadCampaigns(); await refreshCounts();
+  }catch(err){ toast('Create failed'); }
+});
+
+$('#createStoreForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const fd = new FormData(e.currentTarget);
+  const cat = fd.get('category'); fd.delete('category'); fd.append('categories', JSON.stringify([cat]));
+  fd.set('trending', fd.get('trending') ? 'true' : 'false');
+  try{
+    const headers = authHeader();
+    const r = await fetch('/api/stores', { method:'POST', body: fd, headers });
+    if(!r.ok) throw new Error(await r.text());
+    toast('Store created'); e.currentTarget.reset();
+    await loadStores(); await refreshCounts();
+  }catch(err){ toast('Create failed'); }
+});
+</script>
+
+<script src="/js/vendor/jquery-3.3.1.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/custom.js"></script>
+</body>
+</html>

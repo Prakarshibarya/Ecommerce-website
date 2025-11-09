@@ -1,0 +1,630 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+{% include 'common-head.html' %}
+
+<body>
+     {% include 'header.html' %}
+
+     <section id="storeDetails">
+          <div class="breadComeArea">
+               <div class="container">
+                    <div class="row">
+                         <div class="col-12">
+                              <div class="content">
+                                   <ul>
+                                        <li>
+                                             <a href="/">Home</a>
+                                        </li>
+                                        <li><i class="fa-solid fa-chevron-right"></i></li>
+                                        <li>Brand name</li>
+                                   </ul>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          <div class="mainPreviewTop">
+               <div class="container">
+                    <div class="topDetailsArea">
+                         <div class="row">
+                              <div class="col-xl-3 col-lg-4 col-md-5">
+                                   <div class="brandPreview">
+                                        <div class="imageBox">
+                                             <img src="{{ url_for('static',filename='img/brand/1.png') }}" alt="">
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="col-xl-5 col-lg-8 col-md-7">
+                                   <div class="middleInfo">
+                                        <h2>MamaEarth Cashback</h2>
+                                        <h2>Offers</h2>
+                                        <div class="subInfo">
+                                             <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                             <p>Upto 18.75% cash back</p>
+                                        </div>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#activeModal"
+                                             class="btn btn-primary">Activate Cashback</a>
+                                   </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-7 col-12 mx-auto">
+                                   <div class="rightInfo">
+                                        <div class="item">
+                                             <div class="left">
+                                                  <p>Estimated Payment Date:</p>
+                                             </div>
+                                             <div class="right">
+                                                  <h5>15th Oct</h5>
+                                             </div>
+                                        </div>
+                                        <div class="item">
+                                             <div class="left">
+                                                  <p>Tracking Speed:</p>
+                                             </div>
+                                             <div class="right">
+                                                  <h5>48 Hours</h5>
+                                             </div>
+                                        </div>
+                                        <div class="item">
+                                             <div class="left">
+                                                  <p>Missing Cashback:</p>
+                                             </div>
+                                             <div class="right">
+                                                  <h5 class="text-success">Not-Allowed</h5>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="mainDetailsBox">
+                         <div class="row">
+                              <div class="col-xl-4 col-lg-4">
+                                   <div class="sidebarCard">
+                                        <div class="aboutInfo">
+                                             <h4>About</h4>
+                                             <p>MamaEarth is well-known in India's beauty and wellness industry as an
+                                                  online
+                                                  platform selling toxin-free, natural products. MamaEarth has shampoos,
+                                                  conditioners, oils, onion hair products, baby wipes, lipsticks, and
+                                                  more in
+                                                  store. The products are made of organic and pure ingredients that mean
+                                                  no harm
+                                                  to the skin and hair.</p>
+                                        </div>
+                                   </div>
+                                   <div class="sidebarCard">
+                                        <div class="useFullTips">
+                                             <h4>Useful Tips</h4>
+                                             <div class="iconBox">
+                                                  <img src="{{ url_for('static',filename='img/icons/tips.png') }}" alt="">
+                                             </div>
+                                             <div class="contentBox">
+                                                  <ul>
+                                                       <li>cash back might not be earned on store's official App.</li>
+                                                       <li>Using Exclusive Coupons might cause loss in cash back
+                                                            Partially or fully.</li>
+                                                       <li>Baenephit cash back are only for transactions made within the
+                                                            same
+                                                            session after the click out from Baenephit.</li>
+                                                       <li>No cash back on Exchange, Return or cancellation of product.
+                                                       </li>
+                                                       <li>Max 3 orders per Mamaearth Account/ IP Address/ Shipping
+                                                            Address</li>
+                                                       <li>Cashback on orders above Rs.10,000 per day is not allowed.
+                                                       </li>
+                                                       <li>Do not use coupon code with more than 20% Discount.</li>
+                                                  </ul>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="sidebarCard">
+                                        <div class="popularStore">
+                                             <div class="heading">
+                                                  <div class="left">
+                                                       <h4>Popular Stores</h4>
+                                                  </div>
+                                                  <div class="right">
+                                                       <a href="/stores">View All</a>
+                                                  </div>
+                                             </div>
+                                             <div class="content">
+                                                  <div class="row">
+                                                       <div class="col-xl-6 col-lg-12 col-md-6 col-sm-6 col-6">
+                                                            <div class="singleBrand">
+                                                                 <a href="/store-details">
+                                                                      <img src="{{ url_for('static',filename='img/brand/1.png') }}" alt="">
+                                                                 </a>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-xl-6 col-lg-12 col-md-6 col-sm-6 col-6">
+                                                            <div class="singleBrand">
+                                                                 <a href="/store-details">
+                                                                      <img src="{{ url_for('static',filename='img/brand/2.png') }}" alt="">
+                                                                 </a>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-xl-6 col-lg-12 col-md-6 col-sm-6 col-6">
+                                                            <div class="singleBrand">
+                                                                 <a href="/store-details">
+                                                                      <img src="{{ url_for('static',filename='img/brand/3.png') }}" alt="">
+                                                                 </a>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-xl-6 col-lg-12 col-md-6 col-sm-6 col-6">
+                                                            <div class="singleBrand">
+                                                                 <a href="/store-details">
+                                                                      <img src="{{ url_for('static',filename='img/brand/4.png') }}" alt="">
+                                                                 </a>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="sidebarCard">
+                                        <div class="earnCashback">
+                                             <h4>How to earn cashback</h4>
+                                             <div class="content">
+                                                  <img src="{{ url_for('static',filename='img/earncahback.png') }}" class="img-fluid" alt="">
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="col-xl-8 col-lg-8">
+                                   <div class="detailsContent">
+                                        <!-- profit link area -->
+                                        <div class="priofitLinkDetailsArea">
+                                             <div class="profitWrapper">
+                                                  <div class="topInfo text-center">
+                                                       <h4>Profit Link</h4>
+                                                       <p>Copy links of best deals from our stores. Share & Earn.</p>
+                                                  </div>
+                                                  <div class="formBoxArea">
+                                                       <form>
+                                                            <div class="input-group">
+                                                                 <input type="text" class="form-control" required
+                                                                      placeholder="Paste Link eg-https://www.flipkart.com/bags-wallets-belts/" />
+                                                                 <span class="input-group-text" id="basic-addon2"><i
+                                                                           class="fa-solid fa-link"></i></span>
+                                                            </div>
+                                                            <div class="makeProfitLinkButton">
+                                                                 <button type="submit" class="btn btn-primary">Make
+                                                                      Profit Link</button>
+                                                            </div>
+                                                       </form>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <!-- cashback rates -->
+                                        <div class="cashbackRates">
+                                             <div class="topInfo">
+                                                  <h4>Cashback Rates</h4>
+                                                  <input type="text" class="form-control" required=""
+                                                       placeholder="Search...">
+                                             </div>
+                                             <div class="previewWrapper">
+                                                  <div class="row">
+                                                       <div class="col-xl-6 col-lg-6 col-md-6">
+                                                            <div class="singleItemBox">
+                                                                 <div class="topPart">
+                                                                      <div class="left">
+                                                                           <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                      </div>
+                                                                      <div class="right">
+                                                                           <h4>18.75% <br> cash backk</h4>
+                                                                      </div>
+                                                                 </div>
+                                                                 <div class="content">
+                                                                      <p>New Users</p>
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-xl-6 col-lg-6 col-md-6">
+                                                            <div class="singleItemBox">
+                                                                 <div class="topPart">
+                                                                      <div class="left">
+                                                                           <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                      </div>
+                                                                      <div class="right">
+                                                                           <h4>18.75% <br> cash back</h4>
+                                                                      </div>
+                                                                 </div>
+                                                                 <div class="content">
+                                                                      <p>Old User</p>
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-xl-6 col-lg-6 col-md-6">
+                                                            <div class="singleItemBox">
+                                                                 <div class="topPart">
+                                                                      <div class="left">
+                                                                           <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                      </div>
+                                                                      <div class="right">
+                                                                           <h4>4.50% <br> cash back</h4>
+                                                                      </div>
+                                                                 </div>
+                                                                 <div class="content">
+                                                                      <p>All Users - Mamaearth B1G1 (Buy 1 Get 1) sale
+                                                                      </p>
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-xl-6 col-lg-6 col-md-6">
+                                                            <div class="singleItemBox">
+                                                                 <div class="topPart">
+                                                                      <div class="left">
+                                                                           <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                      </div>
+                                                                      <div class="right">
+                                                                           <h4>No cash back</h4>
+                                                                      </div>
+                                                                 </div>
+                                                                 <div class="content">
+                                                                      <p>Voucher/Gift cards, Free & trial <br> products
+                                                                      </p>
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="similarBox">
+                                             <h4 class="headingArea">Similar Stores</h4>
+                                             <div class="sliderActive owl-carousel">
+                                                  <div class="singleSliderItem">
+                                                       <div class="imageBox">
+                                                            <a href="/store-details">
+                                                                 <img src="{{ url_for('static',filename='img/brand/1.png') }}" alt="">
+                                                            </a>
+                                                       </div>
+                                                       <div class="info">
+                                                            <h4>Brand name</h4>
+                                                            <div class="subinfo">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>Upto 14% cash back</span>
+                                                            </div>
+                                                            <div class="activeButton">
+                                                                 <a href="#">Active now</a>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                                  <div class="singleSliderItem">
+                                                       <div class="imageBox">
+                                                            <a href="/store-details">
+                                                                 <img src="{{ url_for('static',filename='img/brand/2.png') }}" alt="">
+                                                            </a>
+                                                       </div>
+                                                       <div class="info">
+                                                            <h4>Brand name</h4>
+                                                            <div class="subinfo">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>Upto 14% cash back</span>
+                                                            </div>
+                                                            <div class="activeButton">
+                                                                 <a href="#">Active now</a>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                                  <div class="singleSliderItem">
+                                                       <div class="imageBox">
+                                                            <a href="/store-details">
+                                                                 <img src="{{ url_for('static',filename='img/brand/3.png') }}" alt="">
+                                                            </a>
+                                                       </div>
+                                                       <div class="info">
+                                                            <h4>Brand name</h4>
+                                                            <div class="subinfo">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>Upto 14% cash back</span>
+                                                            </div>
+                                                            <div class="activeButton">
+                                                                 <a href="#">Active now</a>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                                  <div class="singleSliderItem">
+                                                       <div class="imageBox">
+                                                            <a href="/store-details">
+                                                                 <img src="{{ url_for('static',filename='img/brand/4.png') }}" alt="">
+                                                            </a>
+                                                       </div>
+                                                       <div class="info">
+                                                            <h4>Brand name</h4>
+                                                            <div class="subinfo">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>Upto 14% cash back</span>
+                                                            </div>
+                                                            <div class="activeButton">
+                                                                 <a href="#">Active now</a>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             <div class="actionButton">
+                                                  <a href="#">View all store</a>
+                                             </div>
+                                        </div>
+                                        <!-- body details -->
+                                        <div class="bodyDetails">
+                                             <h3>About MamaEarth</h3>
+                                             <p>MamaEarth is one of India's leading brands when it comes to personal
+                                                  care and wellness needs. It was founded by Varun and Ghazal Alagh in
+                                                  2016, and since then, the Mamaearth founder has worked hard to provide
+                                                  toxin-free products to users in India. With its headquarters in
+                                                  Gurugram, Haryana, Mamaearth has become one of the well-known brands
+                                                  all across the country and even outside the country. It provides the
+                                                  best quality products to its customers and gets you the best and most
+                                                  trusted quality products.</p>
+                                             <h3>Mamaearth Offers </h3>
+                                             <p>Mamaearth offers WOW discounts to its various customers. You can shop
+                                                  your favourite items with Mamaearth and get amazing discounts.
+                                                  Mamaearth offers excellent deals on its organic products. Get
+                                                  discounts with fantastic deals and Mamaearth coupons. The best deals
+                                                  happen at Mamaearth. Visit the store now and grab the best ones.</p>
+                                             <ul>
+                                                  <li>Mamaearth Body Lotion at up to 20% off</li>
+                                                  <li>Get Mamaearth face wash at up to 25% off</li>
+                                                  <li>Mamaearth Shampoo at up to 30% off</li>
+                                                  <li>Save on AntiHair Fall Spa Kit</li>
+                                                  <li>Mamaearth onion hair oil at up to 20% off</li>
+                                             </ul>
+                                             <h3>Mamaearth Cashback Offers</h3>
+                                             <p>MamaEarth never stops offering the best cashback deals on your purchases
+                                                  to make your shopping experience enjoyable. You can easily find the
+                                                  MamaEarth cashback offers to get additional cashback via Baenephit.
+                                                  Hyzzo
+                                                  always benefits its users, and Mamaearth offers will bring you
+                                                  shopping joy in their way. Shop from the latest collection of products
+                                                  and get cashback when you are buying for the first time or all the
+                                                  time.</p>
+                                             <h3>Why you should shop from Mamaearth</h3>
+                                             <p>You cannot cut corners when it comes to the quality of infant items, and
+                                                  Mamaearth has made an effort to address a prevalent parenting issue in
+                                                  India by developing a cutting-edge product range. Mamaearth sells baby
+                                                  items that are safe by international standards and brimming with
+                                                  nature's goodness. Because of the many benefits that come with all
+                                                  such products, there are many people that depend on these kinds of
+                                                  organic products.</p>
+                                             <p>Everyone wants to use beauty products that are completely natural and
+                                                  devoid of chemicals. Mamaearth provides you with everything from hair
+                                                  care and skincare to infant care goods, all of which help to ensure
+                                                  that customers can easily get benefits of the best quality.</p>
+                                             <h3>Best-selling products from Mamaearth</h3>
+                                             <p>Mamaearth has been a very innovative brand in the realm of
+                                                  mother-and-baby personal care. Mamaearth is a pioneer in the creation
+                                                  of personal care products that extract completely natural components.
+                                                  So explore the wide range of products that you are looking for.</p>
+                                             <h3>Mamaearth chemical-free skin and hair care</h3>
+                                             <p>A newborn's skin and hair require careful care, and the products used
+                                                  must be completely free of chemicals. Still, unfortunately, most of
+                                                  the products in the market contain some chemicals, others in the form
+                                                  of harsh preservatives or artificial flavours. So, after realizing
+                                                  these issues, Mamaearth introduced products into the market, offering
+                                                  products completely free of chemicals and toxins and made from only
+                                                  natural ingredients. You can trust every product from the site to be
+                                                  chemical and toxin-free.</p>
+                                             <h5>1. Ultra Light Indian Sunscreen</h5>
+                                             <p>This ultra-light Indian Mamaearth sunscreen is amazing, and the best
+                                                  reason to use it is that it is made with natural components, including
+                                                  Carrot Seed, Turmeric, and SPF 50 PA+, making it ideal to buy. It will
+                                                  last up to 6 hours and always assist in shielding people from harmful
+                                                  UV rays.</p>
+                                             <h5>2. Mamaearth Onion Shampoo</h5>
+                                             <p>This shampoo by Mamaearth is one of the best products available from the
+                                                  company's extensive product line. The best advantage is that it will
+                                                  always assist in addressing all hair problems, including hair damage,
+                                                  less dense hair, hair fall, and several other types of issues. This
+                                                  Mamaearth shampoo is free of any dangerous components, and in
+                                                  addition, this shampoo consists of onion which helps in reducing hair
+                                                  fall and is ideal for hair growth.
+                                             </p>
+                                             <h5>3. Mamaearth Ubtan Face Wash</h5>
+                                             <p>Feel the goodness of Ubtan using Mamaearth face wash. This Mamaearth
+                                                  ubtan face wash also includes carrot seed oil, saffron, and walnut
+                                                  beads. It revitalizes dry, sun-tanned skin for a more radiant and
+                                                  even-toned complexion.</p>
+                                             <h5>4. Dark circle eye cream</h5>
+                                             <p>Mamaearth dark circle cream is one of the greatest ways to say goodbye
+                                                  to the dark circles under the eyes. This cream is the ideal approach
+                                                  to guarantee that your eyes always appear attractive. It is highly
+                                                  effective in hydrating delicate skin under the eyes and supplements it
+                                                  with various types of minerals. This cream contains a variety of
+                                                  beneficial elements and nutrients, including cucumber, peptides, desi
+                                                  flower extract, and a number of other types of ingredients.</p>
+                                             <h5>5. Lip balm</h5>
+                                             <p>The lip balm from Mamaearth is likewise excellent and enables users to
+                                                  hydrate dry lips adequately. This specific balm is made with natural
+                                                  and essential oils, including vitamin E, olive oil, coconut oil, and a
+                                                  number of other ingredients, and is highly effective at mending
+                                                  cracked or damaged lips.</p>
+                                             <h5>6. Mamaearth aloe vera gel</h5>
+                                             <p>Aloe Vera Gel from MamaEarth moisturizes and nourishes the skin and
+                                                  hair. It has organic ingredients, including Vitamin E and glycerin,
+                                                  that work to prevent wrinkles, an itchy scalp, and irritated skin.</p>
+                                             <h5>7. Milky Soft Baby Face Cream with Murumuru butter</h5>
+                                             <p>The finest benefit is that everything is quite safe in terms of
+                                                  upholding the right hygiene for the kid's skin. This baby cream
+                                                  consists of the highest quality ingredients. Because these solutions
+                                                  are free of all toxins and are made from natural materials, parents
+                                                  may rely on them very effectively.</p>
+                                             <h5>8. Honey Malai Body Lotion</h5>
+                                             <p>Pamper your skin with honey malai body lotion, and heal your dry and
+                                                  flaky skin. This lotion is safe and certified, which means it contains
+                                                  only natural goodness for your skin and has no toxic ingredients. This
+                                                  winter, say no to dry skin with honey malai lotion.</p>
+                                             <h5>9. Mamaearth Hair serum</h5>
+                                             <p>Sulfur-rich onions hair serum strengthens hair and lessens breakage.
+                                                  Biotin boosts thickness and lessens breakage. It is enriched with
+                                                  olive oil that helps to get smooth, frizz-free hair. This serum is
+                                                  suitable for all hair types and is free of toxic chemicals.</p>
+                                             <h5>10. Vitamin C face wash</h5>
+                                             <p>Mamaearth's Vitamin C face wash contains brightening effects that will
+                                                  give your skin a natural glow, thanks to the goodness of vitamin C and
+                                                  turmeric. This Mamaearth face wash is ideal for daily use because it
+                                                  works with all skin types, retains moisture, and reduces excess oil.
+                                             </p>
+                                             <h3>How to earn cashback on Mamaearth via Baenephit</h3>
+                                             <ul>
+                                                  <li>Open your Browser.</li>
+                                                  <li>Login to the Baenephit site.</li>
+                                                  <li>In the search panel of Baenephit, Type "Mamaearth."</li>
+                                                  <li>Select Mamaearth. You will be redirected to the best Mamaearth
+                                                       cashback offers on the Baenephit page.</li>
+                                                  <li>Choose the cashback offer and click on the "Activate Cashback"
+                                                       button.</li>
+                                                  <li>Then you will be automatically redirected to the website where you
+                                                       need to complete your purchase.</li>
+                                                  <li>The Mamaearth Cashback Offer will be credited to your account on
+                                                       the confirmation of your order.</li>
+                                             </ul>
+                                             <p>Remember, the more you shop, the more cashback you get. Start shopping
+                                                  using the Baenephit site for Mamaearth Cashback Offers.</p>
+                                             <table class="table table-bordered">
+                                                  <thead>
+                                                       <tr>
+                                                            <th scope="col">Offers for users</th>
+                                                            <th scope="col">Cashback rates</th>
+                                                       </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                       <tr>
+                                                            <td>Mamaearth new user offer</td>
+                                                            <td>18.75% cash back</td>
+                                                       </tr>
+                                                       <tr>
+                                                            <td>Old User</td>
+                                                            <td>7.50% cash back</td>
+                                                       </tr>
+                                                       <tr>
+                                                            <td>All Users - Mamaearth B1G1 (Buy 1 Get 1) sale</td>
+                                                            <td>4.50% cash back</td>
+                                                       </tr>
+                                                       <tr>
+                                                            <td>Vouchers/Gift cards, Free & trial products</td>
+                                                            <td>No cash back</td>
+                                                       </tr>
+                                                  </tbody>
+                                             </table>
+                                             <h3>Mamaearth Sale:</h3>
+                                             <p>Some famous sales are the Mamaearth Oh My Goodness Sale (OMG), Winter
+                                                  Sale, Summer Sale, etc., where you can take advantage of exclusive
+                                                  deals and promotions. These sales have offers that will want you to
+                                                  shop for more and crave more. The offers in this sale are
+                                                  never-ending. Check out the ones that suit your needs and avail
+                                                  yourself of the best offers from the sale.</p>
+                                             <h3>Top ways to save on Mamaearth</h3>
+                                             <h5>Offers and discounts</h5>
+                                             <p>MamaEarth provides a variety of necessities for parents and infants
+                                                  created from natural components at the most competitive costs.
+                                                  Mamaearth also provides some of the most profitable offers for its
+                                                  customers. Additionally, it provides limited-time offers like Deal Of
+                                                  The Day, where you can get the greatest deals on the most popular
+                                                  MamaEarth products.</p>
+                                             <h5>Cashback offers on MamaEarth</h5>
+                                             <p>MamaEarth never fails to provide the top cashback deals on your purchase
+                                                  to enhance your shopping. You can easily find such offers that will
+                                                  give you amazing cashback on your orders on MamaEarth's website.</p>
+                                             <h5>Mamaearth Buy 1 Get 1 offer</h5>
+                                             <p>Mamaearth always does something great for its users to make them happy
+                                                  by giving various offers, including Mamaearth Buy 1 get 1 offer. So if
+                                                  you are looking to save more on your purchase, then don't miss this
+                                                  chance.</p>
+                                             <h3>Mamaearth shipping policy</h3>
+                                             <p>Mamaearth cares about its customers, so it always tries to deliver the
+                                                  products as soon as possible. It takes 5 to 7 days to deliver your
+                                                  order. You don't have to pay any delivery charges for all orders above
+                                                  Rs. 399, and if you order less than it, then you have to pay Rs. 40 as
+                                                  shipping charges.</p>
+                                             <h3>Mamaearth cancellation policy</h3>
+                                             <p>If you want to cancel your order, you can cancel it before the product
+                                                  is dispatched. For cancelling the order, the CANCEL button is
+                                                  available on the order details page in the My Account section. You
+                                                  just have to provide the reason for the cancellation.</p>
+                                             <h3>Mamaearth return and replacement</h3>
+                                             <p>If you are not satisfied with the product you receive and want to return
+                                                  it or get it replaced, you are eligible to do so within 7 days from
+                                                  the day of delivery. But keep in mind the product must be unused and
+                                                  attached with all the required tags. Unfortunately, if you receive a
+                                                  damaged or incomplete order, you have to raise a return request within
+                                                  2 days of receiving the order.</p>
+                                             <h3>Mamaearth refund policy</h3>
+                                             <p>If you cancel your order, Mamaearth will refund your money within 7
+                                                  business days. In case of a return, Mamaearth will issue a refund
+                                                  after the goods have been received in the warehouse and after
+                                                  verifying the returned product.</p>
+                                             <h3>Mamaearth Customer Care</h3>
+                                             <p>You can contact MamaEarth customer care team at +91-8448444875, email,
+                                                  or live chat on the MamaEarth website. You can also write to <a
+                                                       href="#">care@mamaearth.in</a> with your questions.</p>
+                                             <h4>MamaEarth FAQS</h4>
+                                             <h3>Q1. How can I get the best Mamaearth offers?</h3>
+                                             <p>Ans. MamaEarth products are usually available at the best prices on
+                                                  their websites. However, the platform also offers a range of MamaEarth
+                                                  offers to help you save more on your order. Via Baenephit, you will
+                                                  get
+                                                  extra cashback offers for maximum savings.</p>
+                                             <h3>Q2. How long does MamaEarth take to deliver our order?</h3>
+                                             <p>Ans. Orders are usually dispatched within 48 hours of placing your
+                                                  order. MamaEarth tries its best to ship within four days, but orders
+                                                  can take up to 7 days for remote locations.</p>
+                                             <h3>Q3. Can I return MamaEarth products?</h3>
+                                             <p>Ans. You may request to return or replace your order to MamaEarth within
+                                                  seven days of delivery. If a product is damaged or missing, you may
+                                                  notify MamaEarth within two days of delivery for exchange or
+                                                  replacement.</p>
+                                             <h3>Q4. How to track our order on MamaEarth Website or app?</h3>
+                                             <p>Ans. One can easily track their shipment on MamaEarth by going to My
+                                                  Account> Orders. Click the View button next to the order you want to
+                                                  track. Under the order updates, click the tracking link to view the
+                                                  status of your shipment.</p>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+
+     <!-- new footer area -->
+     {% include 'footer.html' %}
+     <!-- cashback active modal -->
+     <div class="modal fade activeCashbackModal" id="activeModal" data-bs-backdrop="static" tabindex="-1"
+          aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+               <div class="modal-content">
+                    <div class="modal-body">
+                         <div class="topInfo">
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                   aria-label="Close"></button>
+                              <div class="image_box">
+                                   <img src="{{ url_for('static',filename='img/brand/1.png') }}" alt="">
+                              </div>
+                         </div>
+                         <div class="middleInfo">
+                              <h4>Big Bachat Dhamaal</h4>
+                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, neque?</p>
+                              <img src="{{ url_for('static',filename='img/brand/2.png') }}" alt="">
+                              <h5>Earn cashback enjoy your shopping</h5>
+                         </div>
+                         <div class="bottomAction">
+                              <ul>
+                                   <li>
+                                        <button class="action_button" type="button">Sign with Mytrip</button>
+                                   </li>
+                                   <li>
+                                        <a href="#" class="sign_in_action">Dont have account ? Sign Up</a>
+                                   </li>
+                              </ul>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <!-- all javascript load here -->
+     {% include 'common_js.html' %}
+</body>
+
+</html>

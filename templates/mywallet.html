@@ -1,0 +1,276 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+{% include 'common-head.html' %}
+
+<body>
+     {% include 'header.html' %}
+
+     <section id="settingPageWrapper">
+          <div class="container-fluid">
+               <div class="row">
+                    <div class="col-xl-3 col-lg-4">
+                         <div class="settingSidebar">
+                              <div class="topInfo">
+                                   <div class="userInfo">
+                                        <div class="image">
+                                             <img src="{{ url_for('static',filename='img/user-icon.png') }}" alt="">
+                                        </div>
+                                        <div class="name">
+                                             <h4>Arpit Gang</h4>
+                                        </div>
+                                   </div>
+                                   <div class="bottomInfo">
+                                        <ul>
+                                             <li>
+                                                  <p>Pending Balance:</p>
+                                                  <div class="dimodBox">
+                                                       <span>0</span>
+                                                  </div>
+                                             </li>
+                                             <li>
+                                                  <p>Available Balance:</p>
+                                                  <div class="dimodBox">
+                                                       <span>25</span>
+                                                  </div>
+                                             </li>
+                                        </ul>
+                                   </div>
+                              </div>
+                              <div class="settingNavLink">
+                                   <ul>
+                                        <li>
+                                             <a href="/my-profile">
+                                                  <span><i class="fa-solid fa-user"></i></span>
+                                                  My Profile
+                                             </a>
+                                        </li>
+                                        <li>
+                                             <a href="/wallet" class="active">
+                                                  <span><i class="fa-regular fa-wallet"></i></span>
+                                                  Wallet
+                                             </a>
+                                        </li>
+                                        <li>
+                                             <a href="#">
+                                                  <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                                                  Logout
+                                             </a>
+                                        </li>
+                                   </ul>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-8">
+                         <div class="settingWrapper">
+                              <div class="myWalletArea">
+                                   <div class="topHeading">
+                                        <h3>My Wallet</h3>
+                                   </div>
+                                   <div class="mainWalletWrapper">
+                                        <div class="topInfo">
+                                             <h4>
+                                                  <span>Your Redeemable Balance:</span>
+                                                  <span class="rightContent">
+                                                       <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                       25
+                                                  </span>
+                                             </h4>
+                                             <div class="reademeButton">
+                                                  <a href="#" class="btn btn-primary">Redeem Now</a>
+                                             </div>
+                                             <p>(You need 175 more cash back to redeem)</p>
+                                        </div>
+                                        <div class="balanceOverView">
+                                             <div class="headingInfo">
+                                                  <h4>Balance Overview</h4>
+                                             </div>
+                                             <div class="mainBox">
+                                                  <div class="singleItem">
+                                                       <div class="itemboxTop">
+                                                            <div class="left">
+                                                                 <img src="{{ url_for('static',filename='img/statussuccess.svg') }}" alt="">
+                                                                 <h3>Approved Balance</h3>
+                                                            </div>
+                                                            <div class="right">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>25</span>
+                                                            </div>
+                                                       </div>
+                                                       <div class="innerItem">
+                                                            <div class="left">
+                                                                 <h4>Cashback Earnings</h4>
+                                                            </div>
+                                                            <div class="right">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>0</span>
+                                                            </div>
+                                                       </div>
+                                                       <div class="innerItem">
+                                                            <div class="left">
+                                                                 <h4>Referral Earnings</h4>
+                                                            </div>
+                                                            <div class="right">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>0</span>
+                                                            </div>
+                                                       </div>
+                                                       <div class="innerItem">
+                                                            <div class="left">
+                                                                 <h4>Task/Bonus Earnings</h4>
+                                                            </div>
+                                                            <div class="right">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>0</span>
+                                                            </div>
+                                                       </div>
+                                                       <div class="innerItem">
+                                                            <div class="left">
+                                                                 <h4>Task/Bonus Earnings</h4>
+                                                            </div>
+                                                            <div class="right">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>25</span>
+                                                            </div>
+                                                       </div>
+                                                       <div class="innerItem">
+                                                            <div class="left">
+                                                                 <h4>Voucher Cash Earnings</h4>
+                                                            </div>
+                                                            <div class="right">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>0</span>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                                  <div class="singleItem">
+                                                       <div class="itemboxTop">
+                                                            <div class="left">
+                                                                 <img src="{{ url_for('static',filename='img/statuspending.svg') }}" alt="">
+                                                                 <h3>Pending Balance</h3>
+                                                            </div>
+                                                            <div class="right">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>0</span>
+                                                            </div>
+                                                       </div>
+                                                       <div class="innerItem">
+                                                            <div class="left">
+                                                                 <h4>Cashback Earnings</h4>
+                                                            </div>
+                                                            <div class="right">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>0</span>
+                                                            </div>
+                                                       </div>
+                                                       <div class="innerItem">
+                                                            <div class="left">
+                                                                 <h4>Referral Earnings</h4>
+                                                            </div>
+                                                            <div class="right">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>0</span>
+                                                            </div>
+                                                       </div>
+                                                       <div class="innerItem">
+                                                            <div class="left">
+                                                                 <h4>Task/Bonus Earnings</h4>
+                                                            </div>
+                                                            <div class="right">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>0</span>
+                                                            </div>
+                                                       </div>
+                                                       <div class="innerItem">
+                                                            <div class="left">
+                                                                 <h4>Voucher Cash Earnings</h4>
+                                                            </div>
+                                                            <div class="right">
+                                                                 <img src="{{ url_for('static',filename='img/diamond-sm.png') }}" alt="">
+                                                                 <span>0</span>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="bottomLinkHelp">
+                                             <ul>
+                                                  <li>
+                                                       <a href="#">
+                                                            <span>Recent Purchase</span>
+                                                            <span><i class="fa-regular fa-chevron-right"></i></span>
+                                                       </a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#">
+                                                            <span>Redemption History</span>
+                                                            <span><i class="fa-regular fa-chevron-right"></i></span>
+                                                       </a>
+                                                  </li>
+                                             </ul>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+     <div class="modal fade chagePasswordModal" id="chnagePassword" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                         <div class="formArea">
+                              <form action="#">
+                                   <div class="row mb-3 align-items-center">
+                                        <div class="col-auto col_label">
+                                             <label for="inputPassword61" class="col-form-label">Old Password:</label>
+                                        </div>
+                                        <div class="col-auto inputFild">
+                                             <input type="password" id="inputPassword61" class="form-control"
+                                                  aria-describedby="passwordHelpInline">
+                                             <div class="forgotpassLink">
+                                                  <a href="#">Forgot-Old-Password?</a>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="row mb-3 align-items-center">
+                                        <div class="col-auto col_label">
+                                             <label for="inputPassword62" class="col-form-label">New Password :</label>
+                                        </div>
+                                        <div class="col-auto inputFild">
+                                             <input type="password" id="inputPassword62" class="form-control"
+                                                  aria-describedby="passwordHelpInline">
+                                        </div>
+                                   </div>
+                                   <div class="row align-items-center">
+                                        <div class="col-auto col_label">
+                                             <label for="inputPassword63" class="col-form-label">Conform Password
+                                                  :</label>
+                                        </div>
+                                        <div class="col-auto inputFild">
+                                             <input type="password" id="inputPassword63" class="form-control"
+                                                  aria-describedby="passwordHelpInline">
+                                        </div>
+                                   </div>
+                              </form>
+                         </div>
+                    </div>
+                    <div class="modal-footer">
+                         <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <!-- new footer area -->
+     {% include 'footer.html' %}
+
+     <!-- all javascript load here -->
+     {% include 'common_js.html' %}
+</body>
+
+</html>

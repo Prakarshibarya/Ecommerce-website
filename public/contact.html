@@ -1,0 +1,124 @@
+﻿<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contact • Baenephit</title>
+  <link rel="stylesheet" href="/static/css/common.css"/>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <style>
+    .contactCard{max-width:920px;margin:32px auto;background:#fff;border:1px solid #e9efee;border-radius:16px;padding:24px}
+    .contactGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+    @media (max-width:900px){.contactGrid{grid-template-columns:1fr}}
+    .ctaBox{background:#f6fffd;border:1px dashed #bfe9e3;border-radius:12px;padding:16px}
+    .contactForm .form-control{height:44px}
+    .contactForm textarea.form-control{height:120px}
+  </style>
+</head>
+<body>
+
+<section id="contactPagearea">
+  <div class="breadComeArea">
+    <div class="container">
+      <div class="row"><div class="col-12">
+        <div class="content">
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><i class="fa-solid fa-chevron-right"></i></li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="contactCard">
+      <div class="topContent" style="text-align:center;margin-bottom:8px">
+        <h4>Don’t be a stranger</h4>
+        <h5>Just say hello.</h5>
+      </div>
+      <div class="middleInfo" style="text-align:center;margin-bottom:20px;color:#667">
+        <p>We’re always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+      </div>
+
+      <div class="contactGrid">
+        <!-- form -->
+        <div>
+          <form class="contactForm" id="contactForm">
+            <div class="mb-3">
+              <label>Full name</label>
+              <input class="form-control" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label>Email</label>
+              <input class="form-control" type="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label>Message</label>
+              <textarea class="form-control" name="message" required></textarea>
+            </div>
+            <button class="btn btn-primary w-100" type="submit">Send message</button>
+            <p class="mt-2" id="contactStatus" style="display:none;"></p>
+          </form>
+        </div>
+
+        <!-- quick contact -->
+        <div>
+          <div class="ctaBox">
+            <p style="margin:0 0 6px">Or WhatsApp your queries on</p>
+            <p style="font-weight:600;font-size:1.1rem">
+              <a href="https://wa.me/918877882323" target="_blank">+91 88 77 88 23 23</a>
+            </p>
+            <hr>
+            <p style="margin:6px 0">Email</p>
+            <p style="font-weight:600"><a href="mailto:support@baenephit.com">support@baenephit.com</a></p>
+            <hr>
+            <p style="margin:6px 0">Address</p>
+            <p style="color:#667">Baenephit, India</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // simple handler: tries POST /api/contact; if not available, falls back to mailto
+  document.getElementById('contactForm').addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const f = e.currentTarget;
+    const data = Object.fromEntries(new FormData(f).entries());
+    const status = document.getElementById('contactStatus');
+    status.style.display = 'block';
+    status.textContent = 'Sending...';
+
+    try {
+      const res = await fetch('/api/contact', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        status.textContent = 'Thanks! We’ll get back to you soon.';
+        f.reset();
+      } else {
+        // fallback to mailto
+        window.location.href = `mailto:support@baenephit.com?subject=Contact%20from%20${encodeURIComponent(data.name)}&body=${encodeURIComponent(data.message)}%0A%0Afrom:%20${encodeURIComponent(data.email)}`;
+        status.textContent = '';
+        status.style.display = 'none';
+      }
+    } catch {
+      window.location.href = `mailto:support@baenephit.com?subject=Contact%20from%20${encodeURIComponent(data.name)}&body=${encodeURIComponent(data.message)}%0A%0Afrom:%20${encodeURIComponent(data.email)}`;
+      status.textContent = '';
+      status.style.display = 'none';
+    }
+  });
+</script>
+
+<script src="/js/vendor/jquery-3.3.1.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/custom.js"></script>
+</body>
+</html>

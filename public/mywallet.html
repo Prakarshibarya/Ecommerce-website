@@ -1,0 +1,246 @@
+﻿<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>My Wallet • Baenephit</title>
+  <link rel="stylesheet" href="/static/css/common.css"/>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+
+<section id="settingPageWrapper">
+  <div class="breadComeArea">
+    <div class="container-fluid">
+      <div class="row"><div class="col-12">
+        <div class="content">
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><i class="fa-solid fa-chevron-right"></i></li>
+            <li>My Wallet</li>
+          </ul>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- left sidebar -->
+      <div class="col-xl-3 col-lg-4">
+        <div class="settingSidebar">
+          <div class="topInfo">
+            <div class="userInfo">
+              <div class="image"><img src="/img/user-icon.png" alt=""></div>
+              <div class="name"><h4 id="sidebarUserName">Guest</h4></div>
+            </div>
+            <div class="bottomInfo">
+              <ul>
+                <li>
+                  <p>Pending Balance:</p>
+                  <div class="dimodBox"><span id="sidebarPending">0</span></div>
+                </li>
+                <li>
+                  <p>Available Balance:</p>
+                  <div class="dimodBox"><span id="sidebarApproved">0</span></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="settingNavLink">
+            <ul>
+              <li>
+                <a href="/myprofile.html">
+                  <span><i class="fa-solid fa-user"></i></span> My Profile
+                </a>
+              </li>
+              <li>
+                <a href="/wallet.html" class="active">
+                  <span><i class="fa-regular fa-wallet"></i></span> Wallet
+                </a>
+              </li>
+              <li>
+                <a href="#" id="logoutBtn">
+                  <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span> Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- right content -->
+      <div class="col-xl-9 col-lg-8">
+        <div class="settingWrapper">
+          <div class="myWalletArea">
+            <div class="topHeading"><h3>My Wallet</h3></div>
+
+            <div class="mainWalletWrapper">
+              <div class="topInfo">
+                <h4>
+                  <span>Your Redeemable Balance:</span>
+                  <span class="rightContent">
+                    <img src="/img/diamond-sm.png" alt=""> <span id="redeemable">0</span>
+                  </span>
+                </h4>
+                <div class="reademeButton">
+                  <a href="#" class="btn btn-primary" id="redeemBtn">Redeem Now</a>
+                </div>
+                <p id="redeemNote">(You need <span id="needMore">0</span> more cash back to redeem)</p>
+              </div>
+
+              <div class="balanceOverView">
+                <div class="headingInfo"><h4>Balance Overview</h4></div>
+
+                <div class="mainBox">
+                  <!-- Approved -->
+                  <div class="singleItem">
+                    <div class="itemboxTop">
+                      <div class="left">
+                        <img src="/img/statussuccess.svg" alt="">
+                        <h3>Approved Balance</h3>
+                      </div>
+                      <div class="right">
+                        <img src="/img/diamond-sm.png" alt="">
+                        <span id="approvedTotal">0</span>
+                      </div>
+                    </div>
+                    <div class="innerItem">
+                      <div class="left"><h4>Cashback Earnings</h4></div>
+                      <div class="right"><img src="/img/diamond-sm.png" alt=""><span id="approvedCashback">0</span></div>
+                    </div>
+                    <div class="innerItem">
+                      <div class="left"><h4>Referral Earnings</h4></div>
+                      <div class="right"><img src="/img/diamond-sm.png" alt=""><span id="approvedReferral">0</span></div>
+                    </div>
+                    <div class="innerItem">
+                      <div class="left"><h4>Task/Bonus Earnings</h4></div>
+                      <div class="right"><img src="/img/diamond-sm.png" alt=""><span id="approvedBonus">0</span></div>
+                    </div>
+                    <div class="innerItem">
+                      <div class="left"><h4>Voucher Cash Earnings</h4></div>
+                      <div class="right"><img src="/img/diamond-sm.png" alt=""><span id="approvedVoucher">0</span></div>
+                    </div>
+                  </div>
+
+                  <!-- Pending -->
+                  <div class="singleItem">
+                    <div class="itemboxTop">
+                      <div class="left">
+                        <img src="/img/statuspending.svg" alt="">
+                        <h3>Pending Balance</h3>
+                      </div>
+                      <div class="right">
+                        <img src="/img/diamond-sm.png" alt="">
+                        <span id="pendingTotal">0</span>
+                      </div>
+                    </div>
+                    <div class="innerItem">
+                      <div class="left"><h4>Cashback Earnings</h4></div>
+                      <div class="right"><img src="/img/diamond-sm.png" alt=""><span id="pendingCashback">0</span></div>
+                    </div>
+                    <div class="innerItem">
+                      <div class="left"><h4>Referral Earnings</h4></div>
+                      <div class="right"><img src="/img/diamond-sm.png" alt=""><span id="pendingReferral">0</span></div>
+                    </div>
+                    <div class="innerItem">
+                      <div class="left"><h4>Task/Bonus Earnings</h4></div>
+                      <div class="right"><img src="/img/diamond-sm.png" alt=""><span id="pendingBonus">0</span></div>
+                    </div>
+                    <div class="innerItem">
+                      <div class="left"><h4>Voucher Cash Earnings</h4></div>
+                      <div class="right"><img src="/img/diamond-sm.png" alt=""><span id="pendingVoucher">0</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bottomLinkHelp">
+                <ul>
+                  <li><a href="#"><span>Recent Purchase</span><span><i class="fa-regular fa-chevron-right"></i></span></a></li>
+                  <li><a href="#"><span>Redemption History</span><span><i class="fa-regular fa-chevron-right"></i></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /right -->
+    </div>
+  </div>
+</section>
+
+<!-- minimal page logic -->
+<script>
+(async function () {
+  // helper: GET JSON (with cookies if you’re using httpOnly JWT)
+  async function getJSON(url){
+    const res = await fetch(url,{credentials:'include'});
+    if(!res.ok) throw new Error('Request failed');
+    return res.json();
+  }
+
+  // fill user name (if API exists)
+  try {
+    const me = await getJSON('/api/auth/me');
+    if (me && me.user) {
+      document.getElementById('sidebarUserName').textContent = me.user.name || 'User';
+    }
+  } catch (_) {}
+
+  // fill wallet (if API exists). shape expected:
+  // { redeemable, threshold, approved:{cashback,referral,bonus,voucher}, pending:{...} }
+  try {
+    const w = await getJSON('/api/wallet');
+    const a = w.approved || {}, p = w.pending || {};
+    const az = (n)=> (typeof n==='number'? n : 0);
+
+    // totals
+    const approvedTotal = az(a.cashback)+az(a.referral)+az(a.bonus)+az(a.voucher);
+    const pendingTotal  = az(p.cashback)+az(p.referral)+az(p.bonus)+az(p.voucher);
+
+    // header + sidebar
+    document.getElementById('redeemable').textContent = az(w.redeemable);
+    document.getElementById('needMore').textContent = Math.max(az(w.threshold)-az(w.redeemable),0);
+    document.getElementById('sidebarApproved').textContent = approvedTotal;
+    document.getElementById('sidebarPending').textContent  = pendingTotal;
+
+    // approved
+    document.getElementById('approvedTotal').textContent    = approvedTotal;
+    document.getElementById('approvedCashback').textContent = az(a.cashback);
+    document.getElementById('approvedReferral').textContent = az(a.referral);
+    document.getElementById('approvedBonus').textContent    = az(a.bonus);
+    document.getElementById('approvedVoucher').textContent  = az(a.voucher);
+
+    // pending
+    document.getElementById('pendingTotal').textContent    = pendingTotal;
+    document.getElementById('pendingCashback').textContent = az(p.cashback);
+    document.getElementById('pendingReferral').textContent = az(p.referral);
+    document.getElementById('pendingBonus').textContent    = az(p.bonus);
+    document.getElementById('pendingVoucher').textContent  = az(p.voucher);
+  } catch (_) {
+    // no API yet → keep defaults
+  }
+
+  // logout clears auth cookie (if you have /api/auth/logout)
+  const lg = document.getElementById('logoutBtn');
+  if (lg) lg.addEventListener('click', async (e)=>{
+    e.preventDefault();
+    try { await fetch('/api/auth/logout', {method:'POST', credentials:'include'}); } catch(_){}
+    window.location.href = '/login.html';
+  });
+
+  // redeem button (optional)
+  document.getElementById('redeemBtn')?.addEventListener('click', (e)=>{
+    e.preventDefault();
+    alert('Redemption flow not wired yet.');
+  });
+})();
+</script>
+
+<script src="/js/vendor/jquery-3.3.1.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/custom.js"></script>
+</body>
+</html>

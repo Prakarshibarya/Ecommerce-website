@@ -1,0 +1,85 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+<link rel="stylesheet" href="/static/css/common.css" />
+<link rel="stylesheet" href="/css/style.css" />
+<head>
+  <link rel="stylesheet" href="/css/common.css">
+  <title>My Profile - Baenephit</title>
+  <style>
+    .profile-container {
+      max-width: 600px; margin: 60px auto; background: #fff; padding: 30px;
+      border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center;
+    }
+    .profile-container img { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px; }
+    .profile-container h2 { margin: 0; font-size: 26px; color: #03A88F; }
+    .profile-container p { color: #666; margin: 8px 0; }
+    .edit-btn { margin-top: 20px; display: inline-block; background-color: #03A88F; color:#fff;
+      padding: 10px 25px; border-radius: 5px; text-decoration: none; font-weight: 600; }
+    .edit-btn:hover { background-color: #028b78; }
+    .logout-link { display:block; margin-top:16px; color:#c00; text-decoration:underline; }
+  </style>
+</head>
+<body>
+
+  <div class="profile-container">
+    <img src="/img/user-icon.png" alt="User Avatar">
+    <h2 id="profName">User</h2>
+    <p id="profEmail">Email: -</p>
+    <p id="profPhone">Phone: -</p>
+    <p id="profSince">Member since: -</p>
+
+    <a href="#" class="edit-btn" id="editBtn">Edit Profile</a>
+    <a href="#" id="logoutLink" class="logout-link">Logout</a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/vendor/jquery-3.3.1.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+  <script src="/js/custom.js"></script>
+  <script>
+    (function () {
+      // Guard
+      const token = localStorage.getItem('authToken');
+      if (!token) {
+        window.location.href = '/login.html';
+        return;
+      }
+
+      // Fill from localStorage (set these when logging in/registering)
+      const name = localStorage.getItem('userName') || 'User';
+      const email = localStorage.getItem('userEmail') || '-';
+      const phone = localStorage.getItem('userPhone') || '-';
+      const since = localStorage.getItem('registeredAt') || new Date().toISOString().slice(0,10);
+
+      document.getElementById('profName').textContent = name;
+      document.getElementById('profEmail').textContent = 'Email: ' + email;
+      document.getElementById('profPhone').textContent = 'Phone: ' + phone;
+      document.getElementById('profSince').textContent = 'Member since: ' + since;
+
+      // Optional: open a simple edit dialog to update local values
+      document.getElementById('editBtn').addEventListener('click', function (e) {
+        e.preventDefault();
+        const newName = prompt('Update name', name);
+        if (newName !== null && newName.trim()) {
+          localStorage.setItem('userName', newName.trim());
+          document.getElementById('profName').textContent = newName.trim();
+        }
+        const newPhone = prompt('Update phone', phone === '-' ? '' : phone);
+        if (newPhone !== null) {
+          localStorage.setItem('userPhone', newPhone.trim() || '-');
+          document.getElementById('profPhone').textContent = 'Phone: ' + (newPhone.trim() || '-');
+        }
+      });
+
+      // Logout
+      document.getElementById('logoutLink').addEventListener('click', function (e) {
+        e.preventDefault();
+        localStorage.removeItem('authToken');
+        window.location.href = '/login.html';
+      });
+    })();
+  </script>
+</body>
+</html>

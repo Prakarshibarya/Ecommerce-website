@@ -1,0 +1,270 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+{% include 'common-head.html' %}
+
+<body>
+     {% include 'header.html' %}
+
+     <section id="settingPageWrapper">
+          <div class="container-fluid">
+               <div class="row">
+                    <div class="col-xl-3 col-lg-4">
+                         <div class="settingSidebar">
+                              <div class="topInfo">
+                                   <div class="userInfo">
+                                        <div class="image">
+                                             <img src="{{ url_for('static',filename='img/user-icon.png') }}" alt="">
+                                        </div>
+                                        <div class="name">
+                                             <h4>Arpit Gang</h4>
+                                        </div>
+                                   </div>
+                                   <div class="bottomInfo">
+                                        <ul>
+                                             <li>
+                                                  <p>Pending Balance:</p>
+                                                  <div class="dimodBox">
+                                                       <span>0</span>
+                                                  </div>
+                                             </li>
+                                             <li>
+                                                  <p>Available Balance:</p>
+                                                  <div class="dimodBox">
+                                                       <span>25</span>
+                                                  </div>
+                                             </li>
+                                        </ul>
+                                   </div>
+                              </div>
+                              <div class="settingNavLink">
+                                   <ul>
+                                        <li>
+                                             <a href="/my-profile" class="active">
+                                                  <span><i class="fa-solid fa-user"></i></span>
+                                                  My Profile
+                                             </a>
+                                        </li>
+                                        <li>
+                                             <a href="/wallet">
+                                                  <span><i class="fa-regular fa-wallet"></i></span>
+                                                  Wallet
+                                             </a>
+                                        </li>
+                                        <li>
+                                             <a href="#">
+                                                  <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                                                  Logout
+                                             </a>
+                                        </li>
+                                   </ul>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-8">
+                         <div class="settingWrapper">
+                              <div class="myProfileArea">
+                                   <div class="topInfo">
+                                        <div class="headingPart">
+                                             <h4>My Profile</h4>
+                                             <p>Personal Information</p>
+                                        </div>
+                                        <div class="actionButton">
+                                             <ul>
+                                                  <li>
+                                                       <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#chnagePassword"
+                                                            class="btn btn-primary">Change Password</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="#" class="btn btn-primary">
+                                                            <i class="fa-thin fa-pencil"></i>
+                                                            <span>Edit</span>
+                                                       </a>
+                                                  </li>
+                                             </ul>
+                                        </div>
+                                   </div>
+                                   <div class="formBoxArea">
+                                        <form action="#">
+                                             <div class="mb-3 row">
+                                                  <label for="inputName" class="col-sm-3 col-form-label">Name:</label>
+                                                  <div class="col-sm-9">
+                                                       <input disabled type="text" class="form-control"
+                                                            placeholder="Enter your name" id="inputName"
+                                                            value="Arpit Gang">
+                                                  </div>
+                                             </div>
+                                             <div class="mb-3 row">
+                                                  <label for="inputDate1"
+                                                       class="col-sm-3 col-form-label">Birthday:</label>
+                                                  <div class="col-sm-9">
+                                                       <input disabled type="date-local" class="form-control"
+                                                            placeholder="Date of birth" value="2018-06-12"
+                                                            id="inputDate1">
+                                                  </div>
+                                             </div>
+                                             <div class="mb-3 row">
+                                                  <label for="inputDate2" class="col-sm-3 col-form-label">Email:</label>
+                                                  <div class="col-sm-9">
+                                                       <input type="email" disabled class="form-control"
+                                                            placeholder="example@gmail.com" value="gang.arpit@gmail.com"
+                                                            id="inputDate2">
+                                                       <div class="bottimActionLink">
+                                                            <ul>
+                                                                 <li><a style="color: #03A88F;" href="#"><i
+                                                                                class="fa-solid fa-pen"></i>
+                                                                           Edit</a></li>
+                                                                 <li><a style="color: #03A88F;" href="#">Verify</a></li>
+                                                            </ul>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             <div class="mb-3 row">
+                                                  <label for="inputGender"
+                                                       class="col-sm-3 col-form-label">Gender:</label>
+                                                  <div class="col-sm-9">
+                                                       <div class="radioBox">
+                                                            <div class="form-check">
+                                                                 <input disabled class="form-check-input" type="radio"
+                                                                      name="gridRadios" id="male" value="option1"
+                                                                      checked>
+                                                                 <label class="form-check-label" for="male">
+                                                                      MALE
+                                                                 </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                 <input disabled class="form-check-input" type="radio"
+                                                                      name="gridRadios" id="female" value="option2">
+                                                                 <label class="form-check-label" for="female">
+                                                                      FEMALE
+                                                                 </label>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             <div class="mb-3 row">
+                                                  <label for="inputGender" class="col-sm-3 col-form-label">Marital
+                                                       Status:</label>
+                                                  <div class="col-sm-9">
+                                                       <div class="radioBox">
+                                                            <div class="form-check">
+                                                                 <input disabled class="form-check-input" type="radio"
+                                                                      name="gridRadios" id="single" value="option1"
+                                                                      checked>
+                                                                 <label class="form-check-label" for="single">
+                                                                      SINGLE
+                                                                 </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                 <input disabled class="form-check-input" type="radio"
+                                                                      name="gridRadios" id="married" value="option2">
+                                                                 <label class="form-check-label" for="married">
+                                                                      MARRIED
+                                                                 </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                 <input disabled class="form-check-input" type="radio"
+                                                                      name="gridRadios" id="complicated"
+                                                                      value="option2">
+                                                                 <label class="form-check-label" for="complicated">
+                                                                      COMPLICATED
+                                                                 </label>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             <div class="mb-3 row">
+                                                  <label for="inputPhone" class="col-sm-3 col-form-label">Phone
+                                                       Number:</label>
+                                                  <div class="col-sm-9">
+                                                       <input disabled type="text" class="form-control"
+                                                            placeholder="Enter phone number" value="9024078079"
+                                                            id="inputPhone">
+                                                       <div class="statusCheck">
+                                                            <img src="{{ url_for('static',filename='img/check.png') }}" alt="">
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             <div class="mb-3 row">
+                                                  <label for="inputPhone" class="col-sm-3 col-form-label">State:</label>
+                                                  <div class="col-sm-9">
+                                                       <select disabled class="form-select" id="autoSizingSelect">
+                                                            <option selected>--Choose State--</option>
+                                                            <option value="1">One</option>
+                                                            <option value="2">Two</option>
+                                                            <option value="3">Three</option>
+                                                       </select>
+                                                  </div>
+                                             </div>
+                                             <div class="row">
+                                                  <div class="saveButton">
+                                                       <button type="submit">Save</button>
+                                                  </div>
+                                             </div>
+                                        </form>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+     <div class="modal fade chagePasswordModal" id="chnagePassword" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                         <div class="formArea">
+                              <form action="#">
+                                   <div class="row mb-3 align-items-center">
+                                        <div class="col-auto col_label">
+                                             <label for="inputPassword66" class="col-form-label">Old Password:</label>
+                                        </div>
+                                        <div class="col-auto inputFild">
+                                             <input type="password" id="inputPassword66" class="form-control"
+                                                  aria-describedby="passwordHelpInline">
+                                             <div class="forgotpassLink">
+                                                  <a href="#">Forgot-Old-Password?</a>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="row mb-3 align-items-center">
+                                        <div class="col-auto col_label">
+                                             <label for="inputPassword67" class="col-form-label">New Password :</label>
+                                        </div>
+                                        <div class="col-auto inputFild">
+                                             <input type="password" id="inputPassword67" class="form-control"
+                                                  aria-describedby="passwordHelpInline">
+                                        </div>
+                                   </div>
+                                   <div class="row align-items-center">
+                                        <div class="col-auto col_label">
+                                             <label for="inputPassword68" class="col-form-label">Conform Password
+                                                  :</label>
+                                        </div>
+                                        <div class="col-auto inputFild">
+                                             <input type="password" id="inputPassword68" class="form-control"
+                                                  aria-describedby="passwordHelpInline">
+                                        </div>
+                                   </div>
+                              </form>
+                         </div>
+                    </div>
+                    <div class="modal-footer">
+                         <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <!-- new footer area -->
+     {% include 'footer.html' %}
+
+     <!-- all javascript load here -->
+     {% include 'common_js.html' %}
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<script src="{{ url_for('static',filename='js/vendor/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/custom.js') }}"></script>
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+    function checkAuthToken() {
+        console.log("auth check");
+        const registeredElement = document.getElementById('registered');
+        const loginRegisterElement = document.getElementById('login/register');
+
+        if (registeredElement && loginRegisterElement) {
+            registeredElement.style.display = 'none';
+            loginRegisterElement.style.display = 'none';
+            const token = localStorage.getItem('authToken');
+            if (token) {
+                registeredElement.style.display = 'block';
+                loginRegisterElement.style.display = 'none';
+            } else {
+                registeredElement.style.display = 'none';
+                loginRegisterElement.style.display = 'block';
+            }
+        }
+    }
+    checkAuthToken();
+
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const userName = document.getElementById('userName').value;
+            const userEmail = document.getElementById('userEmail').value;
+            if (userName === '' || userEmail === '') {
+                showToast('Please fill out all fields.');
+                return;
+            }
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+            localStorage.setItem('authToken', token);
+            localStorage.setItem('registeredName', userName);
+            $('#registerModal').modal('hide');
+            showToast('Registration successful.');
+            setTimeout(function () {
+                location.reload();
+            }, 1000);
+        });
+    }
+    function logout() {
+            const token = localStorage.getItem('authToken');
+            if (token) {
+               localStorage.removeItem('authToken');
+               showToast('Logged out successfully.');
+               setTimeout(function() {
+               location.reload();
+              }, 1000); 
+               } 
+            }
+
+   document.getElementById('dropdownLogoutButton').addEventListener('click', function (e) {
+      e.preventDefault();
+
+      logout();
+   });
+
+document.getElementById('mobileLogoutButton').addEventListener('click', function (e) {
+      e.preventDefault();
+      logout();
+   });
+
+
+    const subscribeForm = document.getElementById('subscribeForm');
+    if (subscribeForm) {
+        subscribeForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('#emailInput');
+            const emailValue = emailInput.value;
+            const errorMessage = document.getElementById('error-message');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(emailValue)) {
+                if (errorMessage) {
+                    errorMessage.style.display = "block";
+                }
+                return false;
+            } else {
+                if (errorMessage) {
+                    errorMessage.style.display = "none";
+                }
+                showToast('Subscription successful.');
+                emailInput.value = '';
+                return true;
+            }
+        });
+    }
+
+    function showToast(message) {
+        const toastEl = document.getElementById('liveToast');
+        if (toastEl) {
+            const toastBody = toastEl.querySelector('.toast-body');
+            if (toastBody) {
+                toastBody.textContent = message;
+                const toast = new bootstrap.Toast(toastEl);
+                toast.show();
+            }
+        }
+    }
+});
+
+
+</script>
+

@@ -1,0 +1,1586 @@
+<!doctype html>
+<html class="no-js" lang="">
+{% include 'common-head.html' %}
+
+<body>
+{% include 'header.html' %}
+<!--toast-notfication -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1060;" font-family="Poppins">
+   <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="background-color: #03A88F; color: white; border: 1px solid #03A88F;  border-radius: 20px; padding: 10px 15px">
+     <div class="toast-body" style="background-color: #03A88F; color: white; border-radius: 30px; ">
+     </div>
+   </div>
+</div>
+
+   <!-- mobile toggle menu -->
+   <div class="offcanvas offcanvas-start mobileMenuContent" tabindex="-1" id="mobileMenu"
+   aria-labelledby="offcanvasExampleLabel">
+   <div class="offcanvas-body">
+      <div class="mbileHeader">
+         <div class="leftInfo">
+            <img src="{{ url_for('static',filename='img/user-icon.png') }}" alt="">
+            <span>Arpit Gang</span>
+         </div>
+         <div class="rightLogo">
+            <img src="{{ url_for('static',filename='img/mobile-logo.png') }}" alt="">
+         </div>
+      </div>
+      <div class="mobileToggleNavLink">
+         <ul>
+            <li>
+               <a href="/tasks">
+                  <span><i class="fa-regular fa-list-check"></i></span>
+                  Task
+               </a>
+            </li>
+            <li>
+               <a data-bs-toggle="collapse" href="#delloftheDayMobile">
+                  <span><i class="fa-regular fa-handshake"></i></span>
+                  Deal of the day
+               </a>
+               <!-- dell of the day mobile content -->
+               <div class="collapse dellofthedayMobileContent" id="delloftheDayMobile">
+                  <div class="card card-body">
+                     <div class="singleItem">
+                        <div class="leftContent">
+                           <img src="{{ url_for('static',filename='img/brand/1.png') }}" class="img-fluid" alt="">
+                        </div>
+                        <div class="rightContent">
+                           <a href="#">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudant</a>
+                        </div>
+                     </div>
+                     <div class="singleItem">
+                        <div class="leftContent">
+                           <img src="{{ url_for('static',filename='img/brand/2.png') }}" class="img-fluid" alt="">
+                        </div>
+                        <div class="rightContent">
+                           <a href="#">Lorem, ipsum dolor sit amet consectetur adipisicing elit. eligendi
+                              ratione?</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </li>
+            <li>
+               <a href="/my-profile">
+                  <span><i class="fa-regular fa-user"></i></span>
+                  My Profile
+               </a>
+            </li>
+            <li>
+               <a href="/wallet">
+                  <span><i class="fa-regular fa-wallet"></i></span>
+                  Wallet
+               </a>
+            </li>
+            <li id="logoutMenuItem">
+               <a href="#" id="logoutButton">
+                  <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                  Logout
+               </a>
+            </li>
+            <li id="loginRegisterMenuItem" style="display: none;">
+               <a href="#">
+                  <span><i class="fa-solid fa-user"></i></span>
+                  Login/Register
+               </a>
+            </li>
+         </ul>
+      </div>
+   </div>
+</div>
+
+   <div id="topInfo">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <p>Best Cashback Website in India</p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <section id="heroBannerInfo">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="mainWrapper">
+                  <div class="row">
+                     <div class="col-xl-8 col-lg-8">
+                        <div class="sliderItemArea">
+                           <div id="bannerSlider1" class="carousel slide" data-bs-ride="carousel">
+                              <div class="carousel-inner">
+                                 <div class="carousel-item active">
+                                    <img src="{{ url_for('static',filename='img/slider/1.jpeg') }}" class="d-block w-100" alt="...">
+                                 </div>
+                                 <div class="carousel-item">
+                                    <img src="{{ url_for('static',filename='img/slider/2.jpeg') }}" class="d-block w-100" alt="...">
+                                 </div>
+                                 <div class="carousel-item">
+                                    <img src="{{ url_for('static',filename='img/slider/3.jpeg') }}" class="d-block w-100" alt="...">
+                                 </div>
+                                 <div class="carousel-item">
+                                    <img src="{{ url_for('static',filename='img/slider/4.jpeg') }}" class="d-block w-100" alt="...">
+                                 </div>
+                              </div>
+
+                              <button class="carousel-control-prev" type="button" data-bs-target="#bannerSlider1"
+                                 data-bs-slide="prev">
+                                 <span><i class="fa-regular fa-angle-left"></i></a></span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#bannerSlider1"
+                                 data-bs-slide="next">
+                                 <span><i class="fa-regular fa-angle-right"></i></a></span>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-xl-4 col-lg-4">
+                        <div id="bannerSlider2" class="carousel slide">
+                           <div class="carousel-inner">
+                              <!-- single right side carousel -->
+                              <div class="carousel-item active">
+                                 <div class="rightSLiderItem">
+                                    <img class="img-fluid" src="{{ url_for('static',filename='img/slider/5.jpg') }}" alt="">
+                                 </div>
+                              </div>
+                              <!-- single right side carousel -->
+                              <div class="carousel-item">
+                                 <div class="rightSLiderItem">
+                                    <img class="img-fluid" src="{{ url_for('static',filename='img/slider/5.jpg') }}" alt="">
+                                 </div>
+                              </div>
+                              <!-- single right side carousel -->
+                              <div class="carousel-item">
+                                 <div class="rightSLiderItem">
+                                    <img class="img-fluid" src="{{ url_for('static',filename='img/slider/5.jpg') }}" alt="">
+                                 </div>
+                              </div>
+                              <!-- single right side carousel -->
+                              <div class="carousel-item">
+                                 <div class="rightSLiderItem">
+                                    <img class="img-fluid" src="{{ url_for('static',filename='img/slider/5.jpg') }}" alt="">
+                                 </div>
+                              </div>
+                           </div>
+                           <button class="carousel-control-prev" type="button" data-bs-target="#bannerSlider2"
+                              data-bs-slide="prev">
+                              <span><i class="fa-regular fa-angle-left"></i></a></span>
+                           </button>
+                           <button class="carousel-control-next" type="button" data-bs-target="#bannerSlider2"
+                              data-bs-slide="next">
+                              <span><i class="fa-regular fa-angle-right"></i></a></span>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+
+   <section id="feateredStores">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="section_heading text-center">
+                  <h3>Featured Stores</h3>
+               </div>
+               <div class="featuredCardWrapper">
+                  <div class="featerSliderActive owl-carousel">
+                     <div class="singleCard">
+                        <div class="cardStyle1">
+                           <a href="/store-details">
+                              <div class="imageBox">
+                                 <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/brand/1.png') }}" alt="">
+                              </div>
+                              <span>
+                                 Upto 18.75% cash back
+                              </span>
+                           </a>
+                        </div>
+                     </div>
+                     <div class="singleCard">
+                        <div class="cardStyle1">
+                           <a href="/store-details">
+                              <div class="imageBox">
+                                 <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/brand/2.png') }}" alt="">
+                              </div>
+                              <span>
+                                 Flat 125 cash back
+                              </span>
+                           </a>
+                        </div>
+                     </div>
+                     <div class="singleCard">
+                        <div class="cardStyle1">
+                           <a href="/store-details">
+                              <div class="imageBox">
+                                 <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/brand/3.png') }}" alt="">
+                              </div>
+                              <span>
+                                 Flat 12.75% cash back
+                              </span>
+                           </a>
+                        </div>
+                     </div>
+                     <div class="singleCard">
+                        <div class="cardStyle1">
+                           <a href="/store-details">
+                              <div class="imageBox">
+                                 <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/brand/4.png') }}" alt="">
+                              </div>
+                              <span>
+                                 Flat 12.75% cash back
+                              </span>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section id="earnCashBack" style="background-color: #03A88F;" >
+      <div class="container" style="background-color: #03A88F;">
+         <div class="row">
+            <div class="col-12">
+               <div class="headingArea">
+                  <h4>How To Earn Cashback</h4>
+               </div>
+            </div>
+            <div class="innerItem row">
+               <div class="col">
+                  <div class="singleItem">
+                     <div class="iconBox">
+                        <img src="{{ url_for('static',filename='img/icons/1.png') }}" alt="">
+                     </div>
+                     <div class="content">
+                        <h4>Login/Signup</h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="col">
+                  <div class="singleItem">
+                     <div class="iconBox">
+                        <img src="{{ url_for('static',filename='img/icons/2.png') }}" alt="">
+                     </div>
+                     <div class="content">
+                        <h4>Select Preferred Store & Click on "Activate Cashback"</h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="col">
+                  <div class="singleItem">
+                     <div class="iconBox">
+                        <img src="{{ url_for('static',filename='img/icons/3.png') }}" alt="">
+                     </div>
+                     <div class="content">
+                        <h4>Shop Online At Stores</h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="col">
+                  <div class="singleItem">
+                     <div class="iconBox">
+                        <img src="{{ url_for('static',filename='img/icons/4.png') }}" alt="">
+                     </div>
+                     <div class="content">
+                        <h4>Get Cashback On Your Baenephit Wallet</h4>
+                     </div>
+                  </div>
+               </div>
+               <div class="col">
+                  <div class="singleItem">
+                     <div class="iconBox">
+                        <img src="{{ url_for('static',filename='img/icons/5.png') }}" alt="">
+                     </div>
+                     <div class="content">
+                        <h4>Transfer it to your Bank Account/Paytm wallet</h4>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section id="cashbackStores">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="section_heading text-center">
+                  <h3>Top Cashback Stores</h3>
+               </div>
+               <div class="miainTabPreviewContent">
+                  <div class="topButtonArea">
+                     <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tending" type="button"
+                              role="tab">
+                              <div class="mobileIcon">
+                                 <i class="fa-light fa-shop"></i>
+                              </div>
+                              Trending <span>Stores</span>
+                           </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" data-bs-toggle="tab" data-bs-target="#fashion" type="button"
+                              role="tab">
+                              <div class="mobileIcon">
+                                 <i class="fa-light fa-vest-patches"></i>
+                              </div>
+                              Fashion
+                           </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" data-bs-toggle="tab" data-bs-target="#foodDaining" type="button"
+                              role="tab">
+                              <div class="mobileIcon">
+                                 <i class="fa-light fa-utensils"></i>
+                              </div>
+                              Food <span>& Dining</span>
+                           </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" data-bs-toggle="tab" data-bs-target="#mobileTablets" type="button"
+                              role="tab">
+                              <div class="mobileIcon">
+                                 <i class="fa-light fa-mobile-screen-button"></i>
+                              </div>
+                              Mobile <span>& Tablets</span>
+                           </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" data-bs-toggle="tab" data-bs-target="#travel" type="button"
+                              role="tab">
+                              <div class="mobileIcon">
+                                 <i class="fa-light fa-plane-departure"></i>
+                              </div>
+                              Travel
+                           </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <button class="nav-link" data-bs-toggle="tab" data-bs-target="#beautyHealth" type="button"
+                              role="tab">
+                              <div class="mobileIcon">
+                                 <i class="fa-light fa-vest-patches"></i>
+                              </div>
+                              Beauty <span>& Health</span>
+                           </button>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="tabPreviewContent">
+                     <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="tending" role="tabpanel" tabindex="0">
+                           <div class="globalTabContent">
+                              <div class="viewAllButton">
+                                 <a href="/stores">View all</a>
+                              </div>
+                              <div class="mainCardContent">
+                                 <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/1.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/2.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/3.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="//store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/4.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/5.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="//store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/6.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/7.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/8.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane fade" id="fashion" role="tabpanel" abindex="0">
+                           <div class="globalTabContent">
+                              <div class="viewAllButton">
+                                 <a href="/stores">View all</a>
+                              </div>
+                              <div class="mainCardContent">
+                                 <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/1.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/2.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/3.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/4.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/5.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane fade" id="foodDaining" role="tabpanel" abindex="0">
+                           <div class="globalTabContent">
+                              <div class="viewAllButton">
+                                 <a href="/stores">View all</a>
+                              </div>
+                              <div class="mainCardContent">
+                                 <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/1.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/2.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane fade" id="mobileTablets" role="tabpanel" abindex="0">
+                           <div class="globalTabContent">
+                              <div class="viewAllButton">
+                                 <a href="/stores">View all</a>
+                              </div>
+                              <div class="mainCardContent">
+                                 <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/1.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/2.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/3.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/4.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/5.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/6.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/7.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/8.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane fade" id="travel" role="tabpanel" abindex="0">
+                           <div class="globalTabContent">
+                              <div class="viewAllButton">
+                                 <a href="/stores">View all</a>
+                              </div>
+                              <div class="mainCardContent">
+                                 <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/1.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/2.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/3.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/4.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/5.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane fade" id="beautyHealth" role="tabpanel" abindex="0">
+                           <div class="globalTabContent">
+                              <div class="viewAllButton">
+                                 <a href="/stores">View all</a>
+                              </div>
+                              <div class="mainCardContent">
+                                 <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-6">
+                                       <div class="singleCard">
+                                          <div class="cardStyle1">
+                                             <a href="/store-details">
+                                                <div class="imageBox">
+                                                   <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/tab/1.png') }}" alt="">
+                                                </div>
+                                                <span>
+
+                                                   Upto 18.75% cash back
+                                                </span>
+                                             </a>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- cta 1 -->
+   <div id="cta1">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="ctaWrapper">
+                  <div class="row align-items-center">
+                     <div class="col-xl-8 col-lg-7 col-md-12 col-sm-12 col-12">
+                        <div class="leftContent text-center">
+                           <h4>Signup to get Cashback every shopping</h4>
+                        </div>
+                     </div>
+                     <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 col-12">
+                        <div class="rightContent">
+                           <a href="#" id="loginSignUpLink">
+                              <img src="{{ url_for('static',filename='img/user-icon.png') }}" alt="">
+                              <span>Log In/ Sign Up</span>
+                            </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- top selling product -->
+   <section id="topSellingProduct">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="headingTop">
+                  <h4>TOP SELLING PRODUCTS</h4>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="sliderWrapperTop">
+         <div class="container">
+            <div class="row">
+               <div class="col-12">
+                  <div class="topSellingSliderActive owl-carousel">
+                     <div class=" singleItem">
+                        <div class="topInfo text-center">
+                           <p>Product name (2)</p>
+                        </div>
+                        <div class="imageBox">
+                           <img class="img-fluid" src="{{ url_for('static',filename='img/brand/1.png') }}" alt="">
+                        </div>
+                        <div class="bottomInfo">
+                           <div class="brandName">
+                              <p>Brand name</p>
+                           </div>
+                           <div class="infoCard">
+                              <div class="subinfo">
+
+                                 <span>Upto 18.75% cash back</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="actionLink">
+                           <a href="#" class="btn btn-primary">Active Now</a>
+                        </div>
+                     </div>
+                     <div class=" singleItem">
+                        <div class="topInfo text-center">
+                           <p>Product name (2)</p>
+                        </div>
+                        <div class="imageBox">
+                           <img class="img-fluid" src="{{ url_for('static',filename='img/brand/2.png') }}" alt="">
+                        </div>
+                        <div class="bottomInfo">
+                           <div class="brandName">
+                              <p>Brand name</p>
+                           </div>
+                           <div class="infoCard">
+                              <div class="subinfo">
+
+                                 <span>Upto 18.75% cash back</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="actionLink">
+                           <a href="#" class="btn btn-primary">Active Now</a>
+                        </div>
+                     </div>
+                     <div class=" singleItem">
+                        <div class="topInfo text-center">
+                           <p>Product name (2)</p>
+                        </div>
+                        <div class="imageBox">
+                           <img class="img-fluid" src="{{ url_for('static',filename='img/brand/3.png') }}" alt="">
+                        </div>
+                        <div class="bottomInfo">
+                           <div class="brandName">
+                              <p>Brand name</p>
+                           </div>
+                           <div class="infoCard">
+                              <div class="subinfo">
+
+                                 <span>Upto 18.75% cash back</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="actionLink">
+                           <a href="#" class="btn btn-primary">Active Now</a>
+                        </div>
+                     </div>
+                     <div class=" singleItem">
+                        <div class="topInfo text-center">
+                           <p>Product name (2)</p>
+                        </div>
+                        <div class="imageBox">
+                           <img class="img-fluid" src="{{ url_for('static',filename='img/brand/4.png') }}" alt="">
+                        </div>
+                        <div class="bottomInfo">
+                           <div class="brandName">
+                              <p>Brand name</p>
+                           </div>
+                           <div class="infoCard">
+                              <div class="subinfo">
+
+                                 <span>Upto 18.75% cash back</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="actionLink">
+                           <a href="#" class="btn btn-primary">Active Now</a>
+                        </div>
+                     </div>
+                     <div class=" singleItem">
+                        <div class="topInfo text-center">
+                           <p>Product name (2)</p>
+                        </div>
+                        <div class="imageBox">
+                           <img class="img-fluid" src="{{ url_for('static',filename='img/brand/5.png') }}" alt="">
+                        </div>
+                        <div class="bottomInfo">
+                           <div class="brandName">
+                              <p>Brand name</p>
+                           </div>
+                           <div class="infoCard">
+                              <div class="subinfo">
+
+                                 <span>Upto 18.75% cash back</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="actionLink">
+                           <a href="#" class="btn btn-primary">Active Now</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- cta 2 -->
+   <div id="cta1" class="cta2">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="ctaWrapper">
+                  <div class="row align-items-center">
+                     <div class="col-xl-8 col-lg-7 col-md-12 col-sm-12 col-12">
+                        <div class="leftContent text-center">
+                           <h4>Create your store link and Earn money
+                              <i class="fa-regular fa-piggy-bank"></i>
+                           </h4>
+                        </div>
+                     </div>
+                     <div class="col-xl-4 col-lg-5 col-md-12 col-sm-12 col-12">
+                        <div class="rightContent">
+                           <a href="#">
+                              <i class="fa-solid fa-link"></i>
+                              <span>Create your link</span>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- top coupon -->
+   <section id="feateredStores">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="section_heading text-center">
+                  <h3>Top Coupons</h3>
+               </div>
+               <div class="featuredCardWrapper">
+                  <div class="featerSliderActive owl-carousel">
+                     <div class="singleCard">
+                        <div class="cardStyle1">
+                           <a href="/store-details">
+                              <div class="imageBox">
+                                 <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/brand/1.png') }}" alt="">
+                              </div>
+                              <span>
+
+                                 Upto 18.75% cash back
+                              </span>
+                           </a>
+                        </div>
+                     </div>
+                     <div class="singleCard">
+                        <div class="cardStyle1">
+                           <a href="/store-details">
+                              <div class="imageBox">
+                                 <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/brand/2.png') }}" alt="">
+                              </div>
+                              <span>
+
+                                 Flat 125 cash back
+                              </span>
+                           </a>
+                        </div>
+                     </div>
+                     <div class="singleCard">
+                        <div class="cardStyle1">
+                           <a href="/store-details">
+                              <div class="imageBox">
+                                 <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/brand/3.png') }}" alt="">
+                              </div>
+                              <span>
+
+                                 Flat 12.75% cash back
+                              </span>
+                           </a>
+                        </div>
+                     </div>
+                     <div class="singleCard">
+                        <div class="cardStyle1">
+                           <a href="/store-details">
+                              <div class="imageBox">
+                                 <img class="img-fluid brandImage" src="{{ url_for('static',filename='img/brand/4.png') }}" alt="">
+                              </div>
+                              <span>
+
+                                 Flat 12.75% cash back
+                              </span>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- email subscribe -->
+   <section id="emailSubscribe">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="subscribeWrapper">
+                  <div class="row align-items-center">
+                     <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
+                        <div class="leftContent">
+                           <h4>Subscribe to get the deals right in your email</h4>
+                        </div>
+                     </div>
+                     <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
+                        <div class="rightForm">
+                           <form action="#" id="subscribeForm">
+                              <div class="input-group" style="display: flex;">
+                                 <input type="email" id="emailInput" class="form-control" placeholder="Enter your email" required style="flex: 1; border-radius: 5px; padding: 10px; border: 1px solid #ccc;">
+                                 <button class="button" type="submit" style="margin-left: 5px; border-radius: 5px; padding: 10px 20px; border: 1px solid #ccc; background-color: #527dfa; color: white;">Subscribe</button>
+                              </div>
+                              <div id="error-message" style="color: red; display: none;">Please enter a valid email address.</div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section id="mobileAddCard">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="addcardSliderActive owl-carousel">
+                  <div class="singleItem">
+                     <img src="{{ url_for('static',filename='img/add1.jpeg') }}" alt="">
+                  </div>
+                  <div class="singleItem">
+                     <img src="{{ url_for('static',filename='img/add2.jpeg') }}" alt="">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- new footer area -->
+   {% include 'footer.html' %}
+
+
+   <!-- login/signup modal -->
+<div class="modal fade authModal" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal-content">
+   <div class="modal-header">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+   </div>
+   <div class="modal-body">
+      <div class="row">
+         <div class="col-xl-5 col-lg-5 col-md-5">
+            <div class="left_bg">
+               <img class="img-fluid" src="{{ url_for('static',filename='img/signup.jpg') }}" alt="">
+            </div>
+         </div>
+         <div class="col-xl-7 col-lg-7 col-md-7">
+            <div class="rightContent">
+               <form class="form" id="mobileLoginForm" action="#">
+                  <div class="inputBoxLogin">
+                     <input type="text" class="form-control" id="mobileNumber">
+                     <label>Mobile</label>
+                  </div>
+                  <div class="nextButton">
+                     <button class="btn btn-primary" type="submit">Next</button>
+                  </div>
+               </form>
+               <div class="googleLogin">
+                  <button type="button" class="googleLoginBtn">
+                     <img src="{{ url_for('static',filename='img/icons/google-icon.png') }}" alt="">
+                     <span>Sign Up With Google</span>
+                  </button>
+               </div>
+               <div class="fbLogin">
+                  <button type="button" class="fbLoginButton">
+                     <img src="{{ url_for('static',filename='img/icons/fbicon.png') }}" alt="">
+                     <span>Sign Up With Facebook</span>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+</div>
+
+<div class="modal fade authModal" id="loginModalVerify" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal-content">
+   <div class="modal-header">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+   </div>
+   <div class="modal-body">
+      <div class="row">
+         <div class="col-xl-5 col-lg-5 col-md-5">
+            <div class="left_bg">
+               <img class="img-fluid" src="{{ url_for('static',filename='img/signup.jpg') }}" alt="">
+            </div>
+         </div>
+         <div class="col-xl-7 col-lg-7 col-md-7">
+            <div class="rightContent">
+               <form class="form" action="#" id="verifyloginform">
+                  <div class="inputBoxLogin">
+                     <input type="text" class="form-control" id="mobileNumberDisplay" disabled>
+                     <label>Mobile</label>
+                  </div>
+                  <div class="incorrectNumberButton">
+                     <a href="#" id="changeNumber">Incorrect Number? <span>Change?</span></a>
+                  </div>
+                  <div class="otpBox" id="otp">
+                     <p id="timeLeft">Time left : 120 seconds</p>
+                     <div class="otpExpire">
+                        <h4 id="otpExpired" style="display: none;">Otp expired! <a href="#">Resend Otp</a></h4>
+                     </div>
+                     <form action="#">
+                        <div class="container" style="text-align: center;">
+                           <div id="inputs" class="inputs" style="display: flex; justify-content: center; gap: 10px;">
+                              <input id="otpInput1" class="input" type="text" inputmode="numeric" maxlength="1" required autocomplete=""
+                              style="width: 40px; height: 40px; font-size: 18px; text-align: center; border: none; border-bottom: 2px solid #000; outline: none;" />
+                              <input id="otpInput2" class="input" type="text" inputmode="numeric" maxlength="1" required
+                              style="width: 40px; height: 40px; font-size: 18px; text-align: center; border: none; border-bottom: 2px solid #000; outline: none;" />
+                              <input id="otpInput3" class="input" type="text" inputmode="numeric" maxlength="1" required
+                              style="width: 40px; height: 40px; font-size: 18px; text-align: center; border: none; border-bottom: 2px solid #000; outline: none;" />
+                              <input id="otpInput4" class="input" type="text" inputmode="numeric" maxlength="1" required 
+                              style="width: 40px; height: 40px; font-size: 18px; text-align: center; border: none; border-bottom: 2px solid #000; outline: none;" />
+                              <input id="otpInput5" class="input" type="text" inputmode="numeric" maxlength="1" required 
+                              style="width: 40px; height: 40px; font-size: 18px; text-align: center; border: none; border-bottom: 2px solid #000; outline: none;" />
+                              <input id="otpInput6" class="input" type="text" inputmode="numeric" maxlength="1" required 
+                              style="width: 40px; height: 40px; font-size: 18px; text-align: center; border: none; border-bottom: 2px solid #000; outline: none;" />
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+                  <div class="nextButton">
+                     <button id="verifyButton" class="btn btn-primary" disabled>Verify</button>
+                     <p id="errorMessage" style="color: red; display: none;">Please fill all OTP fields</p>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+</div>
+<!-- register modal -->
+<div class="modal fade authModal" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+   aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+   <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+         <div class="modal-body">
+            <div class="row">
+               <div class="col-xl-5 col-lg-5 col-md-5">
+                  <div class="left_bg">
+                     <img class="img-fluid" src="{{ url_for('static',filename='img/signup.jpg') }}" alt="">
+                  </div>
+               </div>
+               <div class="col-xl-7 col-lg-7 col-md-7">
+                  <div class="rightContent">
+                     <form class="form" id="registerForm" action="#">
+                        <div class="inputBoxLogin">
+                           <input type="text" class="form-control" id="userName">
+                           <label>Name</label>
+                        </div>
+                        <div class="inputBoxLogin">
+                           <input type="email" class="form-control" id="userEmail">
+                           <label>Email</label>
+                        </div>
+                        <div class="nextButton">
+                           <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                     </form>
+                     <div class="googleLogin">
+                        <button type="button" class="googleLoginBtn">
+                           <img src="{{ url_for('static',filename='img/icons/google-icon.png') }}" alt="">
+                           <span>Sign Up With Google</span>
+                        </button>
+                     </div>
+                     <div class="fbLogin">
+                        <button type="button" class="fbLoginButton">
+                           <img src="{{ url_for('static',filename='img/icons/fbicon.png') }}" alt="">
+                           <span>Sign Up With Facebook</span>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+   <!-- bottom info slider -->
+   <div id="bottomInfoSlider" class="carousel slide" data-bs-ride="carousel">
+      <div class="closeIcon">
+         <button type="button" class="closeButtonAction">
+            <i class="fa-light fa-circle-xmark"></i>
+         </button>
+      </div>
+      <div class="carousel-inner">
+         <div class="carousel-item active">
+            <a href="#">
+               <img src="{{ url_for('static',filename='img/add1.jpeg') }}" class="d-block" alt="">
+            </a>
+         </div>
+         <div class="carousel-item">
+            <a href="#">
+               <img src="{{ url_for('static',filename='img/add2.jpeg') }}" class="d-block" alt="">
+            </a>
+         </div>
+      </div>
+   </div>
+
+   <!-- all javascript load here -->
+   {% include 'common_js.html' %}
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+         let userClickedLogin = false;
+
+         $('#headerLoginButton').on('click', function () {
+            userClickedLogin = true;
+         });
+
+         setTimeout(function () {
+            $('#bottomInfoSlider').addClass('active');
+         }, 1000);
+
+         $('#mobileLoginForm').on('submit', function (e) {
+            e.preventDefault();
+            const mobileNumber = $('#mobileNumber').val();
+            if (!/^\d{10}$/.test(mobileNumber)) {
+               showToast('Please enter a valid 10-digit mobile number.');
+               return;
+            }
+            $('#loginModal').modal('hide');
+            $('#loginModalVerify').modal('show');
+            $('#mobileNumberDisplay').val(mobileNumber);
+            startTimer(120, $('#timeLeft'), $('#otpExpired'));
+            $('#otpInput1').focus();
+         });
+
+         $('#changeNumber').on('click', function (e) {
+            e.preventDefault();
+            $('#loginModalVerify').modal('hide');
+            $('#loginModal').modal('show');
+         });
+
+         const inputs = document.getElementById("inputs");
+         const verifyButton = document.getElementById("verifyButton");
+         const errorMessage = document.getElementById("errorMessage");
+
+         inputs.addEventListener("input", function (e) {
+            const target = e.target;
+            const val = target.value;
+
+            if (isNaN(val)) {
+               target.value = "";
+               return;
+            }
+
+            if (val != "") {
+               const next = target.nextElementSibling;
+               if (next) {
+                  next.focus();
+               }
+            }
+            checkAllInputsFilled();
+         });
+
+         inputs.addEventListener("keyup", function (e) {
+            const target = e.target;
+            const key = e.key.toLowerCase();
+
+            if (key == "backspace" || key == "delete") {
+               target.value = "";
+               const prev = target.previousElementSibling;
+               if (prev) {
+                  prev.focus();
+               }
+               return;
+            }
+         });
+
+         verifyButton.disabled = true;
+
+         verifyButton.addEventListener("click", function () {
+            if (!verifyButton.disabled) { 
+               $('#loginModalVerify').modal('hide');
+               $('#registerModal').modal('show');
+            } else {
+               errorMessage.style.display = 'block';
+            }
+         });
+
+         function checkAllInputsFilled() {
+            const allInputs = inputs.querySelectorAll('.input');
+            let allFilled = true;
+            allInputs.forEach(input => {
+               if (input.value === '') {
+                  allFilled = false;
+               }
+            });
+
+            if (allFilled) {
+               verifyButton.disabled = false;
+            } else {
+               verifyButton.disabled = true;
+            }
+         }
+
+         $('#bottomInfoSlider .closeIcon .closeButtonAction').on('click', function () {
+            $('#bottomInfoSlider').removeClass('active');
+         });
+
+         document.getElementById("mobileLoginForm").reset();
+         document.getElementById("verifyloginform").reset();
+         document.getElementById("registerForm").reset();
+         // function validateEmail() {
+         //    var email = document.getElementById("emailInput").value;
+         //    var errorMessage = document.getElementById("error-message");
+         //    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+         //    if (!emailPattern.test(email)) {
+         //          errorMessage.style.display = "block";
+         //          return false;
+         //    } else {
+         //          errorMessage.style.display = "none";
+         //          return true;
+         //    }
+         // }
+
+         function startTimer(duration, display, expiredMessage) {
+            var timer = duration, minutes, seconds;
+            var countdown = setInterval(function () {
+               minutes = parseInt(timer / 60, 10);
+               seconds = parseInt(timer % 60, 10);
+
+               minutes = minutes < 10 ? "0" + minutes : minutes;
+               seconds = seconds < 10 ? "0" + seconds : seconds;
+
+               display.text("Time left : " + minutes + ":" + seconds);
+               if (--timer < 0) {
+                  clearInterval(countdown);
+                  display.hide();
+                  expiredMessage.show();
+               }
+            }, 1000);
+         }
+         document.getElementById('registerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const userName = document.getElementById('userName').value;
+            const userEmail = document.getElementById('userEmail').value;
+            if (userName === '' || userEmail === '') {
+               showToast('Please fill out all fields.');
+               return;
+            }
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+            localStorage.setItem('authToken', token);
+            localStorage.setItem('registeredName', userName);
+            $('#registerModal').modal('hide');
+            showToast('Registration successful.');
+            setTimeout(function () {
+               location.reload();
+            }, 1000);
+         });
+         function logout() {
+            const token = localStorage.getItem('authToken');
+            if (token) {
+               localStorage.removeItem('authToken');
+               showToast('Logged out successfully.');
+               setTimeout(function() {
+               location.reload();
+              }, 1000); 
+               } 
+            }
+            
+
+   document.getElementById('dropdownLogoutButton').addEventListener('click', function (e) {
+      e.preventDefault();
+
+      logout();
+   });
+
+document.getElementById('mobileLogoutButton').addEventListener('click', function (e) {
+      e.preventDefault();
+      logout();
+   });
+
+   function checkAuthToken() {
+      const token = localStorage.getItem('authToken');
+      if (token) {
+         document.getElementById('logoutMenuItem').style.display = 'block';
+         document.getElementById('loginRegisterMenuItem').style.display = 'none';
+      } else {
+         document.getElementById('logoutMenuItem').style.display = 'none';
+         document.getElementById('loginRegisterMenuItem').style.display = 'block';
+      }
+   }
+
+   checkAuthToken();
+
+
+         document.getElementById('subscribeForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('#emailInput');
+            const emailValue = emailInput.value;
+            const errorMessage = document.getElementById('error-message');
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            debugger;
+            if (!emailPattern.test(emailValue)) {
+                  errorMessage.style.display = "block";
+                  return false;
+            } else {
+                  errorMessage.style.display = "none";
+                  showToast('Subscription successful.');
+                  return true;
+            }
+            emailInput.value = '';
+            errorMessage.style.display = 'none';
+         });
+         function showToast(message) {
+            const toastEl = document.getElementById('liveToast');
+            const toastBody = toastEl.querySelector('.toast-body');
+            toastBody.textContent = message;
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+         }
+      });
+   </script>
+</body>
+</html>

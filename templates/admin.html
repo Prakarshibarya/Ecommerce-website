@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="../static/img/faviconhyyzo-32x32.png">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            height: 100vh;
+            overflow: auto;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: #04766e;
+            color: white;
+            padding: 10px 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo_box {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo_box img {
+            height: 40px;
+        }
+
+        .nav_menu_bar {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav_menu_bar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav_menu_bar li {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            min-width: 150px;
+            text-align: left;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #000;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f4f4f4;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .btn-secondary {
+            background-color: #04766e;
+            border: none;
+            color: white;
+        }
+
+        .btn-secondary:focus,
+        .btn-secondary:hover {
+            background-color: #04766e;
+            color: white;
+            box-shadow: none;
+        }
+
+        .login-container {
+            width: 400px;
+            max-width: 100%;
+            padding: 30px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #03A88F;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dashboard {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-top: 120px;
+            width: 100%;
+        }
+
+        .dashboard-box {
+            background: white;
+            padding: 40px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border-radius: 10px;
+        }
+
+        .dashboard-box:hover {
+            transform: scale(1.05);
+        }
+
+        .dashboard-box h3 {
+            margin-bottom: 20px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #03A88F;
+            color: white;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .list-container {
+            display: none;
+            background: white;
+            padding: 20px;
+            margin-top: 100px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .list-container h3 {
+            margin-bottom: 20px;
+        }
+
+        .list-container .create-form {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .list-container .create-form .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .list-container .create-form label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .list-container .create-form input,
+        .list-container .create-form textarea {
+            width: calc(50% - 10px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f0f0f0;
+        }
+
+        .list-container .create-form textarea {
+            height: 100px;
+        }
+
+        .list-container .create-form input:disabled,
+        .list-container .create-form textarea:disabled {
+            background: #e0e0e0;
+        }
+
+        .list-container .create-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #03A88F;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .list {
+            margin-top: 20px;
+        }
+
+        .list-item {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+            word-wrap: break-word;
+        }
+
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-header button {
+            background-color: #03A88F;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-header button:hover {
+            background-color: #028f75;
+        }
+
+        .back-button {
+            background-color: #03A88F;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #028f75;
+        }
+
+        .create-form .form-group input,
+        .create-form .form-group textarea {
+            width: 100%;
+        }
+
+        .create-form .form-group label {
+            margin-top: 20px;
+        }
+
+        .create-form .form-group input:disabled,
+        .create-form .form-group textarea:disabled {
+            background: #e0e0e0;
+        }
+            select {
+                width: calc(50% - 10px);
+                padding: 10px;
+                margin: 5px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background: #f0f0f0;
+            }
+
+            input[type="checkbox"] {
+                margin-top: 0;
+                margin-left: 10px;
+                transform: scale(1.5);
+                vertical-align: left;
+            }
+
+            select {
+                width: calc(50% - 10px);
+                padding: 10px;
+                margin: 5px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background: #f0f0f0;
+            }
+    </style>
+</head>
+
+<body>
+    <header id="header_top">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-xl-2 col-lg-2 col-6">
+                    <div class="logo_box">
+                        <a href="/">
+                            <img src="../static/img/logo-white.png" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12 col-6" style="display: flex; justify-content: flex-end;">
+                    <div class="nav_menu_bar">
+                        <ul>
+                            <li id="registered" class="dropdown">
+                                <button onclick="myFunction()" class="btn btn-secondary dropbtn" id="adminButton">
+                                    Admin
+                                </button>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <a href="#" id="logoutButton"><span><i class="fa-solid fa-arrow-right-from-bracket"></i></span> Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="login-page" class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div id="error-message" style="color: red; display: none;">Invalid login credentials</div>
+    </div>
+
+    <div id="dashboard" class="dashboard" style="display: none;">
+        <div class="dashboard-box" id="campaignsBox">
+            <h3>Campaigns</h3>
+            <p>Number of Campaigns: <span id="campaign-count">2</span></p>
+        </div>
+        <div class="dashboard-box" id="storesBox">
+            <h3>Stores</h3>
+            <p>Number of Stores: <span id="store-count">2</span></p>
+        </div>
+    </div>
+
+    <div id="campaignsList" class="list-container">
+        <div class="form-header">
+            <h3>Campaigns</h3>
+            <button onclick="showCreateForm('campaign')">Create Campaign</button>
+        </div>
+
+        <div class="create-form" id="campaignCreateForm">
+            <div class="form-group">
+                <label for="campaignImage">Campaign Image:</label>
+                <input type="file" id="campaignImage" name="image">
+                <label for="campaignName">Name:</label>
+                <input type="text" id="campaignName">
+                <label for="campaignLink">Link to Website:</label>
+                <input type="url" id="campaignLink">
+                <label for="campaignAbout">About:</label>
+                <textarea id="campaignAbout"></textarea>
+                <label for="cashbacRates">CashBack Rates:</label>
+                <textarea id="cashbackRates"></textarea>
+                <label for="usefulTips">Useful Tips:</label>
+                <textarea id="usefulTips"></textarea>
+                <label for="campaignOffers">Offers:</label>
+                <textarea id="campaignOffers"></textarea>
+                <label for="campaignWhy">Why You Should Shop:</label>
+                <textarea id="campaignWhy"></textarea>
+                <label for="campaignPolicies">Policies:</label>
+                <textarea id="campaignPolicies"></textarea>
+                <label for="campaignFaqs">FAQs:</label>
+                <textarea id="campaignFaqs"></textarea>
+            </div>
+            <button onclick="createCampaign()">Create</button>
+        </div>
+        <div class="list" id="campaignList">
+            <div id="campaign-count"></div>
+        </div>
+        <button class="back-button" onclick="backToDashboard()">Back</button>
+    </div>
+
+    <div id="storesList" class="list-container">
+        <div class="form-header">
+            <h3>Stores</h3>
+            <button onclick="showCreateForm('store')">Create Store</button>
+        </div>
+        <div class="create-form" id="storeCreateForm">
+            <div class="form-group">
+                <label for="storeImage">Store Image:</label>
+                <input type="file" id="storeImage" name="image">
+                <label for="storeName">Name:</label>
+                <input type="text" id="storeName">
+                <label for="storeLink">Link to Website:</label>
+                <input type="url" id="storeLink">
+                <div style="display: flex; align-items: center; margin: 5px 0;">
+                    <label for="trending" style="margin: 0; margin-right: 10px;">Trending:</label>
+                    <input type="checkbox" id="trending" style="transform: scale(1.5);">
+                </div>
+                <label for="categories">Categories:</label>
+                <select id="categories" >
+                    <option value="fashion">Fashion</option>
+                    <option value="food and dining">Food and Dining</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="travel">Travel</option>
+                    <option value="beauty and health">Beauty and Health</option>
+                </select>
+                <label for="storeAbout">About:</label>
+                <textarea id="storeAbout"></textarea>
+                <label for="cashbacRates">CashBack Rates:</label>
+                <textarea id="cashbackRates"></textarea>
+                <label for="usefulTips">Useful Tips:</label>
+                <textarea id="usefulTips"></textarea>
+                <label for="storeOffers">Offers:</label>
+                <textarea id="storeOffers"></textarea>
+                <label for="storeWhy">Why You Should Shop:</label>
+                <textarea id="storeWhy"></textarea>
+                <label for="storePolicies">Policies:</label>
+                <textarea id="storePolicies"></textarea>
+                <label for="storeFaqs">FAQs:</label>
+                <textarea id="storeFaqs"></textarea>
+            </div>
+            <button onclick="createStore()">Create</button>
+        </div>
+        <div class="list" id="storeList"></div>
+        <button class="back-button" onclick="backToDashboard()">Back</button>
+    </div>
+
+    <div id="liveToast" class="toast">Success</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const token = localStorage.getItem('authToken');
+            const loginPage = document.getElementById('login-page');
+            const dashboard = document.getElementById('dashboard');
+            const adminInfo = document.getElementById('registered');
+            const logoutButton = document.getElementById('logoutButton');
+            const adminButton = document.getElementById('adminButton');
+
+            if (token) {
+                loginPage.style.display = 'none';
+                dashboard.style.display = 'flex';
+                adminInfo.style.display = 'block';
+                loadCampaigns();
+                loadStore();
+            } else {
+                loginPage.style.display = 'block';
+                dashboard.style.display = 'none';
+                adminInfo.style.display = 'none';
+            }
+
+            const loginForm = document.getElementById('loginForm');
+            loginForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                if (email === 'admin@gmail.com' && password === 'password') {
+                    const token = 'sampleauthtoken';
+                    localStorage.setItem('authToken', token);
+                    loginPage.style.display = 'none';
+                    dashboard.style.display = 'flex';
+                    adminInfo.style.display = 'block';
+                    loadCampaigns();
+                    loadStore();
+                } else {
+                    document.getElementById('error-message').style.display = 'block';
+                }
+            });
+
+            logoutButton.addEventListener('click', function () {
+                localStorage.removeItem('authToken');
+                loginPage.style.display = 'block';
+                dashboard.style.display = 'none';
+                adminInfo.style.display = 'none';
+            });
+
+            showToast('Welcome to the Admin Panel');
+
+            document.getElementById('campaignsBox').addEventListener('click', function () {
+                document.getElementById('dashboard').style.display = 'none';
+                document.getElementById('campaignsList').style.display = 'block';
+            });
+
+            document.getElementById('storesBox').addEventListener('click', function () {
+                document.getElementById('dashboard').style.display = 'none';
+                document.getElementById('storesList').style.display = 'block';
+            });
+
+            window.myFunction = function () {
+                document.getElementById("myDropdown").classList.toggle("show");
+            };
+
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            };
+
+            window.showCreateForm = function (type) {
+                if (type === 'campaign') {
+                    document.getElementById('campaignCreateForm').style.display = 'block';
+                } else if (type === 'store') {
+                    document.getElementById('storeCreateForm').style.display = 'block';
+                }
+            };
+
+            window.backToDashboard = function () {
+                document.getElementById('dashboard').style.display = 'flex';
+                document.getElementById('campaignsList').style.display = 'none';
+                document.getElementById('storesList').style.display = 'none';
+            };
+            debugger;
+
+            window.createCampaign = async function () {
+                const form = document.getElementById('campaignCreateForm');
+                const token = localStorage.getItem('authToken');
+                if (!token) {
+                    showToast('Authorization token is missing.');
+                    return;
+                }
+                const campaignName = document.getElementById('campaignName').value;
+                const campaignLink = document.getElementById('campaignLink').value;
+                const campaignAbout = document.getElementById('campaignAbout').value;
+                const cashbackRates = document.getElementById('cashbackRates').value;
+                const usefulTips = document.getElementById('usefulTips').value;
+                const campaignOffers = document.getElementById('campaignOffers').value;
+                const campaignWhy = document.getElementById('campaignWhy').value;
+                const campaignPolicies = document.getElementById('campaignPolicies').value;
+                const campaignFaqs = document.getElementById('campaignFaqs').value;
+
+                const imageInput = document.getElementById('campaignImage');
+                const imageFile = imageInput.files[0];
+
+
+                const formData = new FormData();
+                        formData.append('image', imageInput.files[0]);
+                        formData.append('name', campaignName);
+                        formData.append('link', campaignLink);
+                        formData.append('about', campaignAbout);
+                        formData.append('cashbackRates', cashbackRates);
+                        formData.append('usefulTips', usefulTips);
+                        formData.append('offers', campaignOffers);
+                        formData.append('why', campaignWhy);
+                        formData.append('policies', campaignPolicies);
+                        formData.append('faqs', campaignFaqs);
+
+                debugger;
+
+                try {
+                    const response = await fetch('/campaigns', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: formData 
+                    });
+
+                    if (response.ok) {
+                        showToast('Campaign created successfully');
+
+                        setTimeout(() => {
+                            loadCampaigns();
+                            backToDashboard();
+                        }, 2000);
+                    } else {
+                        const errorData = await response.json();
+                        showToast(`Error creating campaign: ${errorData.error}`);
+                    }
+                } catch (error) {
+                    showToast(`Error creating campaign: ${error.message}`);
+                }
+            };
+
+            window.createStore = async function () {
+                    const form = document.getElementById('storeCreateForm');
+                    const token = localStorage.getItem('authToken');
+                    if (!token) {
+                        showToast('Authorization token is missing.');
+                        return;
+                    }
+                    const storeImageInput = document.getElementById('storeImage');
+                    const storeImage = storeImageInput.files[0]; 
+                    const storeName = document.getElementById('storeName').value;
+                    const storeLink = document.getElementById('storeLink').value;
+                    const storeAbout = document.getElementById('storeAbout').value;
+                    const cashbackRates = document.getElementById('cashbackRates').value;
+                    const usefulTips = document.getElementById('usefulTips').value;
+                    const storeOffers = document.getElementById('storeOffers').value;
+                    const storeWhy = document.getElementById('storeWhy').value;
+                    const storePolicies = document.getElementById('storePolicies').value;
+                    const storeFaqs = document.getElementById('storeFaqs').value;
+                    const trending = document.getElementById('trending').checked;
+                    const categories = [document.getElementById('categories').value];
+
+
+                    const formData = new FormData();
+                    formData.append('storeImage', storeImage); 
+                    formData.append('name', storeName);
+                    formData.append('link', storeLink);
+                    formData.append('about', storeAbout);
+                    formData.append('cashbackRates', cashbackRates);
+                    formData.append('usefulTips', usefulTips);
+                    formData.append('offers', storeOffers);
+                    formData.append('why', storeWhy);
+                    formData.append('policies', storePolicies);
+                    formData.append('faqs', storeFaqs);
+                    formData.append('trending', trending);
+                    formData.append('categories', JSON.stringify(categories));
+
+                    try {
+                        const response = await fetch('/store', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: formData 
+                        });
+                        const rawResponse = await response.text();
+                        console.log('Raw store creation response:', rawResponse); 
+                        const responseData = JSON.parse(rawResponse); 
+
+                        if (response.ok) {
+                            showToast('Store created successfully');
+                            setTimeout(() => {
+                                loadStore();
+                                backToDashboard();
+                            }, 2000);
+                        } else {
+                            const errorData = await response.json();
+                            showToast(`Error creating store: ${errorData.error}`);
+                        }
+                    } catch (error) {
+                        showToast(`Error creating store: ${error.message}`);
+                        console.error('Error creating store:', error);
+                    }
+                };
+
+
+            async function loadCampaigns() {
+                try {
+                    const token = localStorage.getItem('authToken');
+                    if (!token) {
+                        showToast('Authorization token is missing.');
+                        return;
+                    }
+
+                    const response = await fetch('/campaigns', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    const campaigns = await response.json();
+
+                    if (!Array.isArray(campaigns)) {
+                        throw new Error('Expected an array');
+                    }
+
+                    const campaignList = document.getElementById('campaignList');
+                    campaignList.innerHTML = '';
+
+                    for (let i = 0; i < campaigns.length; i++) {
+                        const campaign = campaigns[i];
+                        const campaignObj = JSON.parse(campaign);
+
+                        const listItem = document.createElement('div');
+                        listItem.className = 'list-item';
+
+                        listItem.innerHTML = `
+                            <h4>${campaignObj.name}</h4>
+                            <p><strong>Link:</strong> <a href="${campaignObj.link}" target="_blank">${campaignObj.link}</a></p>
+                        `;
+
+                        campaignList.appendChild(listItem);
+                    }
+
+                    const campaignCount = document.getElementById('campaign-count');
+                    campaignCount.textContent = campaigns.length;
+                } catch (error) {
+                    showToast(`Error loading campaigns: ${error.message}`);
+                }
+            }
+          
+            async function loadStore() {
+    console.log('loadStores function called'); 
+    try {
+        const token = localStorage.getItem('authToken');
+        if (!token) {
+            showToast('Authorization token is missing.');
+            return;
+        }
+
+        const response = await fetch('/store', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        const responseData = await response.text(); 
+        console.log('Raw store response:', responseData); 
+        const stores = JSON.parse(responseData); 
+        if (!Array.isArray(stores)) {
+            throw new Error('Expected an array');
+        }
+
+        const storeList = document.getElementById('storeList');
+        storeList.innerHTML = '';
+
+        for (let i = 0; i < stores.length; i++) {
+            const store = stores[i];
+            const storeObj = JSON.parse(store);
+
+            const listItem = document.createElement('div');
+            listItem.className = 'list-item';
+
+            listItem.innerHTML = `
+                <h4>${storeObj.name}</h4>
+                <p><strong>Link:</strong> <a href="${storeObj.link}" target="_blank">${storeObj.link}</a></p>
+                <p><strong>Trending:</strong> ${storeObj.trending ? 'Yes' : 'No'}</p>
+                <p><strong>Categories:</strong> ${storeObj.categories.length ? storeObj.categories.join(', ') : 'none'}</p>
+
+            `;
+
+            storeList.appendChild(listItem);
+        }
+
+        const storeCount = document.getElementById('store-count');
+        storeCount.textContent = stores.length;
+    } catch (error) {
+        showToast(`Error loading stores: ${error.message}`);
+        console.error('Error loading stores:', error); // Log the error for debugging
+    }
+}
+
+
+            document.getElementById("").reset();
+            function showToast(message) {
+                const toastEl = document.getElementById('liveToast');
+                toastEl.textContent = message;
+                toastEl.style.display = 'block';
+                setTimeout(() => {
+                    toastEl.style.display = 'none';
+                }, 3000);
+            }
+
+            loadCampaigns();
+            loadStore();
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
