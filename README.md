@@ -1,6 +1,5 @@
-# Upgraded Project (Node.js + MongoDB)
+#  Baenephit 
 
-This package upgrades your existing static site (HTML/CSS) to include **JavaScript**, **Node.js**, and **MongoDB**.
 
 ## What's included
 - `public/` — your original site plus:
